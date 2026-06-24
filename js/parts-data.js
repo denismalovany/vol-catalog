@@ -177,14 +177,15 @@ window.PARTS = [
 
   /* ── Багатофункціональні прилади спостереження ─────────── */
   { id:"multi-001", sku:"VOL-MLT-001", department:"Оптика",
-    name:"Корпус блоку живлення (BMS housing)",
-    device:["Багатофункціональний прилад спостереження МП-7"],
+    name:"Корпус батарейного блоку",
+    device:["AGM"],
     type:"Корпусна",
     archetype:"body_plate",
-    print:{ tech:"FDM", layer:"0.20 мм", infill:"40% PETG-CF", time:"3 г 20 хв", mass:"46 г" },
-    material:"PETG-CF", color:"Вугільний",
-    compat:["МП-7","МП-9"],
-    notes:"Корпус під BMS-плату 18650 (3S). Кришка на 4×M2.5 гвинтах, ущільнювач TPU 1.5 мм." },
+    print:{ tech:"FDM", layer:"0.20 мм", infill:"100% PA-CF (нейлон)", time:"3 г 20 хв", mass:"46 г" },
+    material:"PA-CF (нейлон)", color:"Вугільний",
+    compat:["AGM"],
+    notes:"Корпус батарейного блоку для AGM.",
+    photos: ["photos/multi-001-1.png", "photos/multi-001-2.png"] },
 
   { id:"multi-002", sku:"VOL-MLT-002", department:"Оптика",
     name:"Тримач екрана (LCD bracket)",
@@ -500,42 +501,3 @@ window.PARTS = [
     compat:["SMA-роз'єми (2.4/5.8 ГГц)"],
     notes:"Тримач SMA-антени. Стандартне кріплення M10×0.75." }
 ];
-
-/* Допоміжні дані: категорії для UI */
-window.CATALOG = {
-  departments: [
-    {
-      name: "Дрони",
-      types: [
-        "Корпусна",
-        "Кріплення",
-        "Механіка",
-        "Електроніка",
-        "Витратна",
-        "Оптична деталь"
-      ]
-    },
-    {
-      name: "Оптика",
-      types: [
-        "Корпусна",
-        "Кріплення",
-        "Механіка",
-        "Електроніка",
-        "Витратна",
-        "Оптична деталь"
-      ]
-    }
-  ],
-  devices: [
-    "DJI Mavic",
-    "DJI Matrice",
-    "Багатофункціональний прилад спостереження",
-    "Тепловізійний приціл",
-    "Тепловізор",
-    "ПНБ",
-    "Універсальний"
-  ],
-  techs: ["FDM", "SLA", "SLS"],
-  materials: ["PLA+", "PETG", "PETG-CF", "PA-CF (нейлон)", "TPU 85A", "TPU 95A", "ABS-like resin"]
-};

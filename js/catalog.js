@@ -5,7 +5,6 @@
 
 (function () {
   const parts = window.PARTS || [];
-  const cat = window.CATALOG;
 
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
@@ -18,9 +17,48 @@
     types: new Set()
   };
 
-  /* Зведений список типів з усіх відділів (уникаємо дублювання). */
-  const allTypes = [...new Set(cat.departments.flatMap(d => d.types))];
-  const departmentNames = cat.departments.map(d => d.name);
+  /* ===========================================================
+     Динамічне збирання списків фільтрів із наявних запчастин.
+     Єдине джерело правди — масив window.PARTS. Додав нову деталь
+     у parts-data.js — і вона автоматично з'явиться у відповідних
+     чіпах фільтрів.
+     =========================================================== */
+
+  /* Унікальні значення з масиву, відсортовані за українською локаллю. */
+  const uniqueSorted = (arr) =>
+    [...new Set(arr.filter(Boolean))].sort((a, b) => String(a).localeCompare(String(b), "uk"));
+
+  const departmentNames = uniqueSorted(parts.map(p => p.department));
+  const allTypes = uniqueSorted(parts.map(p => p.type));
+  const allTechs = uniqueSorted(parts.map(p => p.print && p.print.tech));
+
+  /* Сімейства пристроїв: для кожного повного маркування знаходимо
+     найдовший спільний префікс, який поділяють принаймні два
+     пристрої. Наприклад:
+       "DJI Mavic 3" + "DJI Mavic 3 Pro" + "DJI Mavic Air 2"
+         → сімейство "DJI Mavic"
+       "ПНБ PVS-14" + "ПНБ PVS-7" + "ПНБ Challenger GS"
+         → сімейство "ПНБ"
+       "AGM", "Універсальний" — поодинокі, лишаються як є. */
+  function computeDeviceFamilies() {
+    const allDevices = [...new Set(parts.flatMap(p => p.device || []))];
+    const families = new Set();
+    for (const d of allDevices) {
+      const words = d.split(/\s+/);
+      let best = d;
+      for (let i = 1; i < words.length; i++) {
+        const prefix = words.slice(0, i).join(" ");
+        const sharedWithOther = allDevices.some(
+          other => other !== d && other.startsWith(prefix + " ")
+        );
+        if (sharedWithOther) best = prefix;
+        else break;
+      }
+      families.add(best);
+    }
+    return [...families];
+  }
+  const deviceFamilies = computeDeviceFamilies().sort((a, b) => a.localeCompare(b, "uk"));
 
   /* ---------- Deep-link з URL hash (напр. з part.html#device=DJI Mavic) ---------- */
   function applyHashFilters() {
@@ -34,8 +72,8 @@
       }
       if (k === "device" && v) {
         const decoded = decodeURIComponent(v);
-        /* Дозволяємо тільки якщо такий пристрій існує в CATALOG */
-        if (cat.devices.includes(decoded)) state.devices.add(decoded);
+        /* Дозволяємо тільки якщо такий сімейний ключ існує в каталозі */
+        if (deviceFamilies.includes(decoded)) state.devices.add(decoded);
       }
       if (k === "type" && v) {
         const decoded = decodeURIComponent(v);
@@ -47,9 +85,9 @@
 
   /* ---------- Ініціалізація статистики hero ---------- */
   $("#stat-total").textContent = parts.length;
-  $("#stat-devices").textContent = cat.devices.length;
+  $("#stat-devices").textContent = deviceFamilies.length;
   $("#stat-types").textContent = allTypes.length;
-  $("#stat-techs").textContent = cat.techs.length;
+  $("#stat-techs").textContent = allTechs.length;
 
   /* ---------- Побудова чіпів ---------- */
   function buildChips(containerId, items, stateSet, prefix) {
@@ -92,7 +130,7 @@
   }
 
   buildChips("chips-department", departmentNames, state.departments, "dp");
-  buildChips("chips-device", cat.devices, state.devices, "d");
+  buildChips("chips-device", deviceFamilies, state.devices, "d");
   buildChips("chips-type", allTypes, state.types, "t");
 
   /* Sync aria-pressed якщо deep-link прийшов через hash */
@@ -281,8 +319,8 @@
 
     [
       { id: "chips-department", items: departmentNames, hideEmpty: true  },
-      { id: "chips-device",     items: cat.devices,    hideEmpty: true  },
-      { id: "chips-type",       items: allTypes,       hideEmpty: true  }
+      { id: "chips-device",     items: deviceFamilies,  hideEmpty: true  },
+      { id: "chips-type",       items: allTypes,        hideEmpty: true  }
     ].forEach(group => {
       group.items.forEach(item => {
         const chipItem = item;
