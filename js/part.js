@@ -159,9 +159,7 @@
   const specs = [
     ["Технологія", part.print.tech],
     ["Висота шару", part.print.layer],
-    ["Заповнення", part.print.infill],
-    ["Час друку", part.print.time],
-    ["Маса деталі", part.print.mass]
+    ["Заповнення", part.print.infill]
   ];
   $("#m-print").innerHTML = specs.map(([l, v]) => `
     <div class="spec-card">
@@ -172,9 +170,6 @@
 
   /* Material */
   $("#m-material").innerHTML = `<code>${part.material}</code>`;
-  $("#m-color").textContent = part.color;
-  const alts = suggestAlternatives(part);
-  $("#m-alts").textContent = alts.length ? alts.join(", ") : "—";
 
   /* Notes */
   $("#m-notes").textContent = part.notes || "—";
@@ -192,16 +187,5 @@
         <div class="sku">${p.sku} · ${p.type}</div>
       </div>
     `).join("");
-  }
-
-  function suggestAlternatives(p) {
-    const tech = p.print.tech;
-    if (tech === "FDM") {
-      return ["ABS", "ASA", "PLA+"];
-    }
-    if (tech === "SLA") {
-      return ["Стандартна сіра смола", "Тверда смола"];
-    }
-    return [];
   }
 })();

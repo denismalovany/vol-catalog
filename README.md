@@ -38,8 +38,8 @@
   device:["DJI Mavic 3"],
   type:"Кріплення",
   archetype:"mount_bracket",
-  print:{ tech:"FDM", layer:"0.20 мм", infill:"40% PETG-CF", time:"1 г 30 хв", mass:"20 г" },
-  material:"PETG-CF", color:"Вугільний",
+  print:{ tech:"FDM", layer:"0.20 мм", infill:"40% PETG-CF" },
+  material:"PETG-CF",
   compat:["Mavic 3"],
   notes:"Заміна штатного тримача. PA-CF — для морозостійкості." }
 ```
@@ -58,10 +58,7 @@
 | `print.tech` | FDM або SLA | `"FDM"` |
 | `print.layer` | Висота шару | `"0.20 мм"` |
 | `print.infill` | Заповнення + матеріал | `"40% PETG-CF"` |
-| `print.time` | Орієнтовний час друку | `"1 г 30 хв"` |
-| `print.mass` | Маса готової деталі | `"20 г"` |
 | `material` | Рекомендований матеріал | `"PETG-CF"` |
-| `color` | Колір | `"Вугільний"` |
 | `compat` | Повний перелік сумісних моделей | `["Mavic 3"]` |
 | `notes` | Нотатки інженера (1–2 речення) | `"Заміна штатного..."` |
 
