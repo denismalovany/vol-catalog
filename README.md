@@ -4,10 +4,10 @@
 
 ## Деплой на GitHub Pages
 
-1. Створіть публічний репозиторій, наприклад `vol-parts-catalog`.
+1. Створіть публічний репозиторій, наприклад `vol-catalog`.
 2. Скопіюйте вміст цього каталогу в корінь репозиторію (файли `index.html`, `part.html`, `js/`, `README.md`).
 3. **Settings → Pages → Build and deployment → Branch: `main` / Folder: `/ (root)` → Save**.
-4. Зачекайте ~1 хвилину. Сайт буде доступний за адресою `https://<username>.github.io/vol-parts-catalog/`.
+4. Зачекайте ~1 хвилину. Сайт буде доступний за адресою `https://<username>.github.io/vol-catalog/`.
 
 > Якщо використовуєте кастомний домен — додайте файл `CNAME` з доменом і налаштуйте DNS за інструкцією GitHub.
 
