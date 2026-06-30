@@ -5,7 +5,6 @@
 
 (function () {
   const parts = window.PARTS || [];
-  const cat = window.CATALOG;
 
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
@@ -13,9 +12,53 @@
   const state = {
     q: "",
     sort: "sku",
+    departments: new Set(),
     devices: new Set(),
     types: new Set()
   };
+
+  /* ===========================================================
+     Динамічне збирання списків фільтрів із наявних запчастин.
+     Єдине джерело правди — масив window.PARTS. Додав нову деталь
+     у parts-data.js — і вона автоматично з'явиться у відповідних
+     чіпах фільтрів.
+     =========================================================== */
+
+  /* Унікальні значення з масиву, відсортовані за українською локаллю. */
+  const uniqueSorted = (arr) =>
+    [...new Set(arr.filter(Boolean))].sort((a, b) => String(a).localeCompare(String(b), "uk"));
+
+  const departmentNames = uniqueSorted(parts.map(p => p.department));
+  const allTypes = uniqueSorted(parts.map(p => p.type));
+  const allTechs = uniqueSorted(parts.map(p => p.print && p.print.tech));
+
+  /* Сімейства пристроїв: для кожного повного маркування знаходимо
+     найдовший спільний префікс, який поділяють принаймні два
+     пристрої. Наприклад:
+       "DJI Mavic 3" + "DJI Mavic 3 Pro" + "DJI Mavic Air 2"
+         → сімейство "DJI Mavic"
+       "ПНБ PVS-14" + "ПНБ PVS-7" + "ПНБ Challenger GS"
+         → сімейство "ПНБ"
+       "AGM", "Універсальний" — поодинокі, лишаються як є. */
+  function computeDeviceFamilies() {
+    const allDevices = [...new Set(parts.flatMap(p => p.device || []))];
+    const families = new Set();
+    for (const d of allDevices) {
+      const words = d.split(/\s+/);
+      let best = d;
+      for (let i = 1; i < words.length; i++) {
+        const prefix = words.slice(0, i).join(" ");
+        const sharedWithOther = allDevices.some(
+          other => other !== d && other.startsWith(prefix + " ")
+        );
+        if (sharedWithOther) best = prefix;
+        else break;
+      }
+      families.add(best);
+    }
+    return [...families];
+  }
+  const deviceFamilies = computeDeviceFamilies().sort((a, b) => a.localeCompare(b, "uk"));
 
   /* ---------- Deep-link з URL hash (напр. з part.html#device=DJI Mavic) ---------- */
   function applyHashFilters() {
@@ -23,14 +66,18 @@
     if (!hash) return;
     hash.split("&").forEach(pair => {
       const [k, v] = pair.split("=");
+      if (k === "department" && v) {
+        const decoded = decodeURIComponent(v);
+        if (departmentNames.includes(decoded)) state.departments.add(decoded);
+      }
       if (k === "device" && v) {
         const decoded = decodeURIComponent(v);
-        /* Дозволяємо тільки якщо такий пристрій існує в CATALOG */
-        if (cat.devices.includes(decoded)) state.devices.add(decoded);
+        /* Дозволяємо тільки якщо такий сімейний ключ існує в каталозі */
+        if (deviceFamilies.includes(decoded)) state.devices.add(decoded);
       }
       if (k === "type" && v) {
         const decoded = decodeURIComponent(v);
-        if (cat.types.includes(decoded)) state.types.add(decoded);
+        if (allTypes.includes(decoded)) state.types.add(decoded);
       }
     });
   }
@@ -38,15 +85,17 @@
 
   /* ---------- Ініціалізація статистики hero ---------- */
   $("#stat-total").textContent = parts.length;
-  $("#stat-devices").textContent = cat.devices.length;
-  $("#stat-types").textContent = cat.types.length;
-  $("#stat-techs").textContent = cat.techs.length;
+  $("#stat-devices").textContent = deviceFamilies.length;
+  $("#stat-types").textContent = allTypes.length;
+  $("#stat-techs").textContent = allTechs.length;
 
   /* ---------- Побудова чіпів ---------- */
   function buildChips(containerId, items, stateSet, prefix) {
     const container = $("#" + containerId);
     container.innerHTML = "";
-    const label = containerId === "chips-device" ? "Пристрій:" : "Тип:";
+    const label = containerId === "chips-department" ? "Відділ:"
+                 : containerId === "chips-device"    ? "Пристрій:"
+                 : "Тип:";
     const labelEl = document.createElement("span");
     labelEl.style.cssText = "font:600 11px/1 var(--font-mono);letter-spacing:0.1em;text-transform:uppercase;color:var(--text);align-self:center;margin-right:4px;";
     labelEl.textContent = label;
@@ -54,9 +103,8 @@
 
     items.forEach(item => {
       const count = parts.filter(p => {
-        if (containerId === "chips-device") {
-          return p.device.some(d => deviceMatches(d, item));
-        }
+        if (containerId === "chips-department") return p.department === item;
+        if (containerId === "chips-device") return p.device.some(d => deviceMatches(d, item));
         return p.type === item;
       }).length;
       const chip = document.createElement("button");
@@ -81,14 +129,15 @@
     return deviceValue === chipKey || deviceValue.startsWith(chipKey + " ");
   }
 
-  buildChips("chips-device", cat.devices, state.devices, "d");
-  buildChips("chips-type", cat.types, state.types, "t");
+  buildChips("chips-department", departmentNames, state.departments, "dp");
+  buildChips("chips-device", deviceFamilies, state.devices, "d");
+  buildChips("chips-type", allTypes, state.types, "t");
 
   /* Sync aria-pressed якщо deep-link прийшов через hash */
-  if (state.devices.size || state.types.size) {
+  if (state.departments.size || state.devices.size || state.types.size) {
     $$(".chip").forEach(c => {
       const v = c.dataset.value;
-      const pressed = state.devices.has(v) || state.types.has(v);
+      const pressed = state.departments.has(v) || state.devices.has(v) || state.types.has(v);
       c.setAttribute("aria-pressed", pressed ? "true" : "false");
     });
   }
@@ -115,6 +164,7 @@
 
   function reset() {
     state.q = "";
+    state.departments.clear();
     state.devices.clear();
     state.types.clear();
     $("#q").value = "";
@@ -128,6 +178,9 @@
   /* ---------- Фільтрація та сортування ---------- */
   function applyFilters() {
     let out = parts.slice();
+    if (state.departments.size) {
+      out = out.filter(p => state.departments.has(p.department));
+    }
     if (state.devices.size) {
       out = out.filter(p => p.device.some(d =>
         Array.from(state.devices).some(chip => deviceMatches(d, chip))
@@ -185,7 +238,6 @@
             <span><span>Технологія</span><strong>${p.print.tech}</strong></span>
             <span><span>Шар</span><strong>${p.print.layer}</strong></span>
             <span><span>Заповнення</span><strong>${p.print.infill}</strong></span>
-            <span><span>Маса</span><strong>${p.print.mass}</strong></span>
           </div>
         </div>
       </article>
@@ -243,6 +295,9 @@
      поведінка faceted-фільтрів і допомагає зрозуміти, чи варто клікати. */
   function recountChips() {
     const baseFiltered = parts.filter(p => {
+      if (state.departments.size) {
+        if (!state.departments.has(p.department)) return false;
+      }
       if (state.devices.size) {
         if (!p.device.some(d => Array.from(state.devices).some(chip => deviceMatches(d, chip)))) return false;
       }
@@ -261,16 +316,23 @@
       return baseFiltered.filter(p => extra(p)).length;
     }
 
-    ["chips-device", "chips-type"].forEach(id => {
-      const isDevice = id === "chips-device";
-      const items = isDevice ? cat.devices : cat.types;
-      items.forEach(item => {
+    [
+      { id: "chips-department", items: departmentNames, hideEmpty: true  },
+      { id: "chips-device",     items: deviceFamilies,  hideEmpty: true  },
+      { id: "chips-type",       items: allTypes,        hideEmpty: true  }
+    ].forEach(group => {
+      group.items.forEach(item => {
+        const chipItem = item;
         const count = countWithExtra(p => {
-          if (isDevice) return p.device.some(d => deviceMatches(d, item));
-          return p.type === item;
+          if (group.id === "chips-department") return p.department === chipItem;
+          if (group.id === "chips-device") return p.device.some(d => deviceMatches(d, chipItem));
+          return p.type === chipItem;
         });
-        const chip = document.querySelector(`#${id} .chip[data-value="${CSS.escape(item)}"] .chip__count`);
-        if (chip) chip.textContent = count;
+        const chipEl = document.querySelector(`#${group.id} .chip[data-value="${CSS.escape(item)}"]`);
+        if (!chipEl) return;
+        const countEl = chipEl.querySelector(".chip__count");
+        if (countEl) countEl.textContent = count;
+        chipEl.style.display = (group.hideEmpty && count === 0) ? "none" : "";
       });
     });
   }
