@@ -197,7 +197,6 @@
           || (p.material || "").toLowerCase().includes(q)
           || (p.type || "").toLowerCase().includes(q)
           || p.device.join(" ").toLowerCase().includes(q)
-          || (p.compat || []).join(" ").toLowerCase().includes(q)
           || (p.notes || "").toLowerCase().includes(q);
       });
     }
@@ -306,7 +305,7 @@
       }
       if (state.q) {
         const q = state.q;
-        const hay = [p.sku, p.name, p.material, p.type, p.device.join(" "), (p.compat || []).join(" "), p.notes || ""].join(" ").toLowerCase();
+        const hay = [p.sku, p.name, p.material, p.type, p.device.join(" "), p.notes || ""].join(" ").toLowerCase();
         if (!hay.includes(q)) return false;
       }
       return true;

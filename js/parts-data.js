@@ -2,7 +2,7 @@
    VOL — Каталог 3D-друкованих запчастин
    Список деталей. Кожен запис — це:
      id, sku, name, device[], type, archetype, photos?[],
-     print{tech,layer,infill,mass}, material, compat[], notes
+     print{tech,layer,infill,mass}, material, notes
    (поля print.time та color видалені; print.mass закоментовано у кожному записі)
    Рендери — параметризовані SVG-шаблони в render.js (див. window.RENDER.archetypes).
    Якщо вказано `photos: [...]` — картка показує перше фото; на сторінці деталі —
@@ -19,7 +19,6 @@ window.PARTS = [
     photos:["photos/mavic-001-1.jpg","photos/mavic-001-2.jpg","photos/mavic-001-3.jpg"],
     print:{ tech:"FDM", layer:"0.20 мм", infill:"35% PA-CF" /*, time:"2 г 40 хв", mass:"28 г" */ },
     material:"PETG-CF",
-    compat:["Mavic 3","Mavic 3 Pro","Mavic Air 2"],
     notes:"Заміна стокової верхньої панелі після крашу. Посадкова площина під стійки — допуск ±0.2 мм." },
 
   { id:"mavic-002", sku:"VOL-MAV-002", department:"Дрони",
@@ -30,7 +29,6 @@ window.PARTS = [
     photos:["photos/mavic-002-1.jpg","photos/mavic-002-2.jpg"],
     print:{ tech:"SLA", layer:"0.05 мм", infill:"100% resin" /*, time:"1 г 10 хв", mass:"9 г" */ },
     material:"ABS-like resin",
-    compat:["Mavic 3","Mavic 3 Pro"],
     notes:"Друк на SLA — потрібна гладка контактна поверхня під об'єктив. Після друку — УФ-загартування 4 хв." },
 
   { id:"mavic-003", sku:"VOL-MAV-003", department:"Дрони",
@@ -41,7 +39,6 @@ window.PARTS = [
     photos:["photos/mavic-003-1.jpg","photos/mavic-003-2.jpg","photos/mavic-003-3.jpg","photos/mavic-003-4.jpg"],
     print:{ tech:"FDM", layer:"0.20 мм", infill:"40% PETG-CF" /*, time:"1 г 50 хв", mass:"18 г" */ },
     material:"PETG-CF",
-    compat:["GoPro Hero 9/10/11","GoPro Bones"],
     notes:"Універсальна майданчик під GoPro-серію. Стандартне кріплення thumb-screw М3." },
 
   { id:"mavic-004", sku:"VOL-MAV-004", department:"Дрони",
@@ -52,7 +49,6 @@ window.PARTS = [
     photos:["photos/mavic-004-1.jpg"],
     print:{ tech:"FDM", layer:"0.16 мм", infill:"50% PA-CF" /*, time:"1 г 10 хв", mass:"6 г" */ },
     material:"PA-CF (нейлон)",
-    compat:["Mavic 3 (версія CE)","Mavic Air 2"],
     notes:"Під заміну втраченої антенної стійки. PA-CF витримує згин без тріщин." },
 
   { id:"mavic-005", sku:"VOL-MAV-005", department:"Дрони",
@@ -62,7 +58,6 @@ window.PARTS = [
     archetype:"bumper_strap",
     print:{ tech:"FDM", layer:"0.20 мм", infill:"50% PETG" /*, time:"2 г 05 хв", mass:"22 г" */ },
     material:"PETG",
-    compat:["Mavic 3","Mavic 3 Pro"],
     notes:"Посадкова ніжка з демпферним кільцем TPU. Друк у орієнтації XZ." },
 
   { id:"mavic-006", sku:"VOL-MAV-006", department:"Дрони",
@@ -72,7 +67,6 @@ window.PARTS = [
     archetype:"cable_strap",
     print:{ tech:"FDM", layer:"0.20 мм", infill:"30% TPU 95A" /*, time:"0 г 35 хв", mass:"3 г" */ },
     material:"TPU 95A",
-    compat:["Mavic 3","Mavic Air 2","Mavic Mini 2"],
     notes:"Фіксатор кабелю підвісу від вібрації. TPU 95A — достатня гнучкість без повзучості." },
 
   { id:"mavic-007", sku:"VOL-MAV-007", department:"Дрони",
@@ -82,7 +76,6 @@ window.PARTS = [
     archetype:"cable_strap",
     print:{ tech:"FDM", layer:"0.20 мм", infill:"25% PLA+" /*, time:"0 г 50 хв", mass:"7 г (пара)" */ },
     material:"PLA+",
-    compat:["Mavic 3","Mavic Air 2"],
     notes:"Пара фіксаторів для транспортування. Помаранчевий — щоб не загубити." },
 
   { id:"mavic-008", sku:"VOL-MAV-008", department:"Дрони",
@@ -92,7 +85,6 @@ window.PARTS = [
     archetype:"ring_adapter",
     print:{ tech:"SLA", layer:"0.05 мм", infill:"100% resin" /*, time:"0 г 40 хв", mass:"4 г" */ },
     material:"ABS-like resin",
-    compat:["Mavic 3","Mavic 3 Pro","Mavic Air 2"],
     notes:"Сумісний із різьбовими CPL/ND-фільтрами 52 мм. Друк SLA для точної різьби M52×0.75." },
 
   /* ── DJI Matrice ──────────────────────────────────────── */
@@ -103,7 +95,6 @@ window.PARTS = [
     archetype:"body_plate",
     print:{ tech:"FDM", layer:"0.20 мм", infill:"40% PA-CF" /*, time:"4 г 10 хв", mass:"56 г" */ },
     material:"PA-CF (нейлон)",
-    compat:["Matrice 30","Matrice 30T"],
     notes:"Заміна верхньої шасі-плити після крашу. PA-CF обов'язковий — стандартний PETG не витримує ударних навантажень." },
 
   { id:"matr-002", sku:"VOL-MTR-002", department:"Дрони",
@@ -113,7 +104,6 @@ window.PARTS = [
     archetype:"mount_bracket",
     print:{ tech:"FDM", layer:"0.20 мм", infill:"45% PA-CF" /*, time:"3 г 25 хв", mass:"42 г" */ },
     material:"PA-CF (нейлон)",
-    compat:["Matrice 30","Matrice 300 RTK"],
     notes:"Майданчик під додатковий модуль (ліхтар, динамік, ретранслятор). Стандартне кріплення M4." },
 
   { id:"matr-003", sku:"VOL-MTR-003", department:"Дрони",
@@ -123,7 +113,6 @@ window.PARTS = [
     archetype:"bumper_strap",
     print:{ tech:"FDM", layer:"0.20 мм", infill:"35% TPU 95A" /*, time:"2 г 50 хв", mass:"32 г" */ },
     material:"TPU 95A",
-    compat:["Matrice 30","Matrice 30T"],
     notes:"Демпферна накладка на нижню раму. TPU 95A — компроміс гнучкості та зносостійкості." },
 
   { id:"matr-004", sku:"VOL-MTR-004", department:"Дрони",
@@ -133,7 +122,6 @@ window.PARTS = [
     archetype:"mount_bracket",
     print:{ tech:"FDM", layer:"0.20 мм", infill:"40% PA-CF" /*, time:"3 г 00 хв", mass:"38 г" */ },
     material:"PA-CF (нейлон)",
-    compat:["Matrice 30 (TB30 battery)"],
     notes:"Майданчик під другу батарею TB30. Встановлюється в стіковий слот без модифікацій." },
 
   { id:"matr-005", sku:"VOL-MTR-005", department:"Дрони",
@@ -143,7 +131,6 @@ window.PARTS = [
     archetype:"cable_strap",
     print:{ tech:"FDM", layer:"0.16 мм", infill:"30% PETG" /*, time:"1 г 15 хв", mass:"10 г" */ },
     material:"PETG",
-    compat:["Matrice 300","Matrice 30"],
     notes:"Кабель-канал уздовж рами. Усуває ризик перетирання джгута об промені." },
 
   { id:"matr-006", sku:"VOL-MTR-006", department:"Дрони",
@@ -153,7 +140,6 @@ window.PARTS = [
     archetype:"body_plate",
     print:{ tech:"SLA", layer:"0.05 мм", infill:"100% resin" /*, time:"1 г 30 хв", mass:"14 г" */ },
     material:"ABS-like resin",
-    compat:["Matrice 300 RTK"],
     notes:"SLA-друк обов'язковий — потрібна точна посадка під ущільнювач IP45." },
 
   { id:"matr-007", sku:"VOL-MTR-007", department:"Дрони",
@@ -163,7 +149,6 @@ window.PARTS = [
     archetype:"antenna_module",
     print:{ tech:"FDM", layer:"0.16 мм", infill:"45% PETG-CF" /*, time:"1 г 40 хв", mass:"12 г" */ },
     material:"PETG-CF",
-    compat:["Matrice 300 RTK (D-RTK 2)"],
     notes:"Заміна штатного кронштейна. Додатковий отвір під кабельну стяжку." },
 
   { id:"matr-008", sku:"VOL-MTR-008", department:"Дрони",
@@ -173,7 +158,6 @@ window.PARTS = [
     archetype:"cable_strap",
     print:{ tech:"FDM", layer:"0.20 мм", infill:"30% TPU 95A" /*, time:"1 г 00 хв", mass:"14 г" */ },
     material:"TPU 95A",
-    compat:["Matrice 300","Matrice 30"],
     notes:"Страхувальна стропа для роботи біля будівель/дерев. Жовтий — для помітності." },
 
   /* ── Багатофункціональні прилади спостереження ─────────── */
@@ -185,7 +169,6 @@ window.PARTS = [
     photos:["photos/multi-001-1.png","photos/multi-001-2.png","photos/multi-001-3.png","photos/multi-001-4.png"],
     print:{ tech:"FDM", layer:"0.20 мм", infill:"100% PA-CF (нейлон)" /*, time:"…", mass:"…" */ },
     material:"PA-CF (нейлон)",
-    compat:["AGM"],
     notes:"Корпус батарейного блоку для AGM." },
 
   { id:"multi-002", sku:"VOL-MLT-002", department:"Оптика",
@@ -195,7 +178,6 @@ window.PARTS = [
     archetype:"mount_bracket",
     print:{ tech:"FDM", layer:"0.20 мм", infill:"30% PLA+" /*, time:"1 г 25 хв", mass:"15 г" */ },
     material:"PLA+",
-    compat:["МП-7 (LCD 5″)"],
     notes:"Регульований кут нахилу ±15°. Підходить для дисплеїв 5″ з монтажем 120×76 мм." },
 
   { id:"multi-003", sku:"VOL-MLT-003", department:"Оптика",
@@ -205,7 +187,6 @@ window.PARTS = [
     archetype:"ring_adapter",
     print:{ tech:"FDM", layer:"0.16 мм", infill:"100% PETG-CF" /*, time:"2 г 10 хв", mass:"22 г" */ },
     material:"PETG-CF",
-    compat:["МП-9"],
     notes:"Кільце з 36 зубцями під шестерню. Друк у вертикальній орієнтації — без підтримок." },
 
   { id:"multi-004", sku:"VOL-MLT-004", department:"Оптика",
@@ -215,7 +196,6 @@ window.PARTS = [
     archetype:"gear_set",
     print:{ tech:"FDM", layer:"0.10 мм", infill:"100% PA-CF" /*, time:"0 г 55 хв", mass:"5 г" */ },
     material:"PA-CF (нейлон)",
-    compat:["МП-9","МП-11"],
     notes:"Шестерня 36 зубців, модуль 0.5. Тонкий шар 0.10 мм — для точного профілю зуба." },
 
   { id:"multi-005", sku:"VOL-MLT-005", department:"Оптика",
@@ -225,7 +205,6 @@ window.PARTS = [
     archetype:"lens_cap",
     print:{ tech:"SLA", layer:"0.05 мм", infill:"100% resin" /*, time:"0 г 25 хв", mass:"3 г" */ },
     material:"ABS-like resin",
-    compat:["МП-7 (об'єктив 38 мм)"],
     notes:"Кришка-оберігач на байонет. SLA — щоб різьба не зламалась при відкручуванні." },
 
   { id:"multi-006", sku:"VOL-MLT-006", department:"Оптика",
@@ -235,7 +214,6 @@ window.PARTS = [
     archetype:"body_plate",
     print:{ tech:"FDM", layer:"0.20 мм", infill:"30% PETG" /*, time:"2 г 30 хв", mass:"26 г" */ },
     material:"PETG",
-    compat:["МП-11"],
     notes:"Бокова ручка для стабілізації. Стандартне кріплення 1/4″-20." },
 
   { id:"multi-007", sku:"VOL-MLT-007", department:"Оптика",
@@ -245,7 +223,6 @@ window.PARTS = [
     archetype:"cable_strap",
     print:{ tech:"FDM", layer:"0.20 мм", infill:"100% TPU 95A" /*, time:"0 г 20 хв", mass:"2 г" */ },
     material:"TPU 95A",
-    compat:["МП-7","МП-9","МП-11"],
     notes:"Герметичний кабельний ввід під кабель Ø 4–6 мм. Заміна втраченого при ремонті." },
 
   { id:"multi-008", sku:"VOL-MLT-008", department:"Оптика",
@@ -255,7 +232,6 @@ window.PARTS = [
     archetype:"cable_strap",
     print:{ tech:"FDM", layer:"0.20 мм", infill:"25% PLA+" /*, time:"0 г 45 хв", mass:"8 г" */ },
     material:"PLA+",
-    compat:["МП-7","МП-9","МП-11"],
     notes:"Пара фіксаторів під стандартний ремінь 25 мм. Заміна тріснутого штатного." },
 
   /* ── Тепловізійні приціли ─────────────────────────────── */
@@ -266,7 +242,6 @@ window.PARTS = [
     archetype:"mount_bracket",
     print:{ tech:"FDM", layer:"0.20 мм", infill:"40% PA-CF" /*, time:"2 г 15 хв", mass:"30 г" */ },
     material:"PA-CF (нейлон)",
-    compat:["Pulsar Trail 2 (LRF/XP50)","Pulsar Helion 2 (XP50)"],
     notes:"Заміна штатного кронштейна під планку Picatinny 21 мм. PA-CF — для морозостійкості до -20°C і стійкості до віддачі." },
 
   { id:"ths-005", sku:"VOL-THS-005", department:"Оптика",
@@ -276,7 +251,6 @@ window.PARTS = [
     archetype:"bumper_strap",
     print:{ tech:"SLA", layer:"0.05 мм", infill:"100% resin" /*, time:"0 г 30 хв", mass:"3 г (4 шт)" */ },
     material:"ABS-like resin",
-    compat:["Pulsar Trail 2","Pulsar Helion 2"],
     notes:"Комплект 4-х тактових кнопок. SLA — щоб хід був однаковий." },
 
   { id:"ths-006", sku:"VOL-THS-006", department:"Оптика",
@@ -286,7 +260,6 @@ window.PARTS = [
     archetype:"ring_adapter",
     print:{ tech:"FDM", layer:"0.20 мм", infill:"100% TPU 95A" /*, time:"0 г 15 хв", mass:"2 г" */ },
     material:"TPU 95A",
-    compat:["Pulsar Trail 2","Pulsar Helion 2","Pulsar Accolade 2"],
     notes:"Гумовий наочник на окуляр. TPU 95A — щоб не тиснув на обличчя при тривалому спостереженні, не пропускає бічне світло." },
 
   { id:"ths-008", sku:"VOL-THS-008", department:"Оптика",
@@ -296,7 +269,6 @@ window.PARTS = [
     archetype:"antenna_module",
     print:{ tech:"FDM", layer:"0.16 мм", infill:"40% PETG-CF" /*, time:"0 г 50 хв", mass:"4 г" */ },
     material:"PETG-CF",
-    compat:["Pulsar Trail 2","Pulsar Helion 2"],
     notes:"Корпус зовнішньої антени 2.4 ГГц. Під заміну втраченої." },
 
   /* ── Тепловізори ──────────────────────────────────────── */
@@ -307,7 +279,6 @@ window.PARTS = [
     archetype:"body_plate",
     print:{ tech:"FDM", layer:"0.20 мм", infill:"35% PETG-CF" /*, time:"2 г 45 хв", mass:"32 г" */ },
     material:"PETG-CF",
-    compat:["Flir Scout III 320","Flir Scout III 640"],
     notes:"Заміна ручки після механічного пошкодження. PA-CF альтернатива — якщо експлуатація до -20°C." },
 
   { id:"thm-002", sku:"VOL-THM-002", department:"Оптика",
@@ -317,7 +288,6 @@ window.PARTS = [
     archetype:"body_plate",
     print:{ tech:"SLA", layer:"0.05 мм", infill:"100% resin" /*, time:"0 г 55 хв", mass:"8 г" */ },
     material:"ABS-like resin",
-    compat:["Flir Scout III"],
     notes:"SLA — для точного притискання до ущільнювача." },
 
   { id:"thm-003", sku:"VOL-THM-003", department:"Оптика",
@@ -327,7 +297,6 @@ window.PARTS = [
     archetype:"ring_adapter",
     print:{ tech:"SLA", layer:"0.05 мм", infill:"100% resin" /*, time:"0 г 30 хв", mass:"3 г" */ },
     material:"ABS-like resin",
-    compat:["Flir Scout III","Pulsar Helion 2"],
     notes:"Адаптер під CPL 35 мм. Різьба M35×0.75 — SLA обов'язково." },
 
   { id:"thm-004", sku:"VOL-THM-004", department:"Оптика",
@@ -337,7 +306,6 @@ window.PARTS = [
     archetype:"mount_bracket",
     print:{ tech:"FDM", layer:"0.20 мм", infill:"40% PETG-CF" /*, time:"1 г 30 хв", mass:"18 г" */ },
     material:"PETG-CF",
-    compat:["Flir Scout III","Pulsar Helion 2","Pulsar Accolade"],
     notes:"Перехідник 1/4″-20 на штативну майданчик приладу." },
 
   { id:"thm-005", sku:"VOL-THM-005", department:"Оптика",
@@ -347,7 +315,6 @@ window.PARTS = [
     archetype:"gear_set",
     print:{ tech:"FDM", layer:"0.12 мм", infill:"100% PETG-CF" /*, time:"1 г 10 хв", mass:"6 г" */ },
     material:"PETG-CF",
-    compat:["Flir Scout III 320","Flir Scout III 640"],
     notes:"Заміна зношеної шестерні фокусера. 24 зуби, модуль 0.4." },
 
   { id:"thm-006", sku:"VOL-THM-006", department:"Оптика",
@@ -357,7 +324,6 @@ window.PARTS = [
     archetype:"lens_cap",
     print:{ tech:"SLA", layer:"0.05 мм", infill:"100% resin" /*, time:"0 г 25 хв", mass:"3 г" */ },
     material:"ABS-like resin",
-    compat:["Flir Scout III","Flir Scout TK"],
     notes:"Захисна кришка об'єктива. Байонетна фіксація." },
 
   { id:"thm-007", sku:"VOL-THM-007", department:"Оптика",
@@ -367,7 +333,6 @@ window.PARTS = [
     archetype:"cable_strap",
     print:{ tech:"FDM", layer:"0.20 мм", infill:"25% TPU 95A" /*, time:"0 г 30 хв", mass:"4 г" */ },
     material:"TPU 95A",
-    compat:["Flir Scout III","Pulsar Helion 2","Pulsar Accolade"],
     notes:"Пара фіксаторів під ремінець 20 мм. TPU 95A — не рве при натягу." },
 
   { id:"thm-008", sku:"VOL-THM-008", department:"Оптика",
@@ -377,7 +342,6 @@ window.PARTS = [
     archetype:"cable_strap",
     print:{ tech:"FDM", layer:"0.20 мм", infill:"100% TPU 95A" /*, time:"0 г 10 хв", mass:"1.5 г" */ },
     material:"TPU 95A",
-    compat:["Flir Scout III","Flir Scout TK"],
     notes:"Фіксатор micro-USB кабелю. Захищає роз'єм від виривання." },
 
   /* ── Прилади нічного бачення (ПНБ) ───────────────────── */
@@ -388,7 +352,6 @@ window.PARTS = [
     archetype:"body_plate",
     print:{ tech:"FDM", layer:"0.20 мм", infill:"40% PA-CF" /*, time:"3 г 10 хв", mass:"40 г" */ },
     material:"PA-CF (нейлон)",
-    compat:["PVS-14","Challenger GS 1×20"],
     notes:"Заміна тріснутого корпусу монокуляра. PA-CF — для морозостійкості та удароміцності." },
 
   { id:"nvg-002", sku:"VOL-NVG-002", department:"Оптика",
@@ -398,7 +361,6 @@ window.PARTS = [
     archetype:"ring_adapter",
     print:{ tech:"FDM", layer:"0.20 мм", infill:"30% TPU 85A" /*, time:"0 г 25 хв", mass:"4 г" */ },
     material:"TPU 85A",
-    compat:["PVS-14","PVS-7","Challenger GS"],
     notes:"Заміна втраченого наочника. TPU 85A — щоб не тиснув на обличчя при тривалому носінні." },
 
   { id:"nvg-003", sku:"VOL-NVG-003", department:"Оптика",
@@ -408,7 +370,6 @@ window.PARTS = [
     archetype:"lens_cap",
     print:{ tech:"SLA", layer:"0.05 мм", infill:"100% resin" /*, time:"0 г 20 хв", mass:"2.5 г" */ },
     material:"ABS-like resin",
-    compat:["PVS-14","Challenger GS 1×20/3×50"],
     notes:"Кришка з центральним отвором Ø 6 мм для тренувань у денний час." },
 
   { id:"nvg-004", sku:"VOL-NVG-004", department:"Оптика",
@@ -418,7 +379,6 @@ window.PARTS = [
     archetype:"mount_bracket",
     print:{ tech:"FDM", layer:"0.16 мм", infill:"50% PA-CF" /*, time:"2 г 00 хв", mass:"22 г" */ },
     material:"PA-CF (нейлон)",
-    compat:["PVS-14","PVS-7","Norotos 3-hole shroud"],
     notes:"J-подібний кронштейн для шолома. PA-CF — обов'язково: навантаження вагою приладу + віддача." },
 
   { id:"nvg-005", sku:"VOL-NVG-005", department:"Оптика",
@@ -428,7 +388,6 @@ window.PARTS = [
     archetype:"body_plate",
     print:{ tech:"FDM", layer:"0.20 мм", infill:"35% PETG" /*, time:"1 г 20 хв", mass:"12 г" */ },
     material:"PETG",
-    compat:["PVS-14 (AA × 1)"],
     notes:"Заміна втраченого тримача AA. Кришка на засувці, без гвинтів." },
 
   { id:"nvg-006", sku:"VOL-NVG-006", department:"Оптика",
@@ -438,7 +397,6 @@ window.PARTS = [
     archetype:"gear_set",
     print:{ tech:"SLA", layer:"0.05 мм", infill:"100% resin" /*, time:"0 г 25 хв", mass:"2 г" */ },
     material:"ABS-like resin",
-    compat:["PVS-14","Challenger GS"],
     notes:"SLA — для гладкого профілю зуба. 12 зубів, модуль 0.3." },
 
   { id:"nvg-007", sku:"VOL-NVG-007", department:"Оптика",
@@ -448,7 +406,6 @@ window.PARTS = [
     archetype:"cable_strap",
     print:{ tech:"FDM", layer:"0.20 мм", infill:"100% TPU 95A" /*, time:"0 г 10 хв", mass:"1.5 г" */ },
     material:"TPU 95A",
-    compat:["PVS-14","PVS-7"],
     notes:"Фіксатор кабелю живлення до корпусу. TPU 95A — не ріже ізоляцію." },
 
   { id:"nvg-008", sku:"VOL-NVG-008", department:"Оптика",
@@ -458,7 +415,6 @@ window.PARTS = [
     archetype:"cable_strap",
     print:{ tech:"FDM", layer:"0.20 мм", infill:"25% PLA+" /*, time:"0 г 30 хв", mass:"5 г" */ },
     material:"PLA+",
-    compat:["PVS-14","PVS-7"],
     notes:"Пара фіксаторів під chin-strap 20 мм. Заміна зношених." },
 
   /* ── Крос-пристрої: універсальні деталі ─────────────── */
@@ -469,7 +425,6 @@ window.PARTS = [
     archetype:"mount_bracket",
     print:{ tech:"FDM", layer:"0.20 мм", infill:"40% PETG-CF" /*, time:"0 г 50 хв", mass:"9 г" */ },
     material:"PETG-CF",
-    compat:["Будь-який прилад з різьбою 1/4″-20"],
     notes:"L-подібний кронштейн-перехідник. Стандартне фото-кріплення." },
 
   { id:"uni-002", sku:"VOL-UNI-002", department:"Дрони",
@@ -479,7 +434,6 @@ window.PARTS = [
     archetype:"cable_strap",
     print:{ tech:"FDM", layer:"0.20 мм", infill:"30% PLA+" /*, time:"0 г 15 хв", mass:"2 г" */ },
     material:"PLA+",
-    compat:["Кабелі Ø 4–8 мм"],
     notes:"Самоклейний фіксатор кабелю. У комплекті 3M VHB стрічка." },
 
   { id:"uni-003", sku:"VOL-UNI-003", department:"Оптика",
@@ -489,7 +443,6 @@ window.PARTS = [
     archetype:"ring_adapter",
     print:{ tech:"FDM", layer:"0.20 мм", infill:"100% TPU 95A" /*, time:"0 г 20 хв", mass:"2.5 г" */ },
     material:"TPU 95A",
-    compat:["Корпуси з пазом 2×1.5 мм"],
     notes:"Ущільнювач заміна силіконового. Товщина 1.5 мм. Стійкий до UV та масел." },
 
   { id:"uni-004", sku:"VOL-UNI-004", department:"Дрони",
@@ -499,6 +452,16 @@ window.PARTS = [
     archetype:"antenna_module",
     print:{ tech:"FDM", layer:"0.16 мм", infill:"45% PETG-CF" /*, time:"0 г 35 хв", mass:"5 г" */ },
     material:"PETG-CF",
-    compat:["SMA-роз'єми (2.4/5.8 ГГц)"],
-    notes:"Тримач SMA-антени. Стандартне кріплення M10×0.75." }
+    notes:"Тримач SMA-антени. Стандартне кріплення M10×0.75." },
+
+  { id:"vol-123", sku:"123", department:"Оптика",
+    name:"test",
+    device:["123"],
+    type:"Механіка",
+    archetype:"antenna_module",
+    photos:["photos/123-1.png","photos/123-2.png"],
+    print:{ tech:"FDM", layer:"0.20 мм", infill:"40% PETG-CF" /*, time:"…", mass:"…" */ },
+    material:"PA-CF (нейлон)",
+    notes:"тест" }
+
 ];

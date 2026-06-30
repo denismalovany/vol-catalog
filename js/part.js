@@ -152,8 +152,7 @@
     });
   }
 
-  /* Compat list */
-  $("#m-compat").innerHTML = (part.compat || []).map(c => `<li>${c}</li>`).join("");
+  /* Compat list (deprecated) */
 
   /* Print params */
   const specs = [
