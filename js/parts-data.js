@@ -177,16 +177,16 @@ window.PARTS = [
     notes:"Страхувальна стропа для роботи біля будівель/дерев. Жовтий — для помітності." },
 
   /* ── Багатофункціональні прилади спостереження ─────────── */
-  { id:"multi-001", sku:"VOL-MLT-001", department:"Оптика",
+  { id:"vol-vol-mlt-001", sku:"VOL-MLT-001", department:"Оптика",
     name:"Корпус батарейного блоку",
     device:["AGM"],
     type:"Корпусна",
     archetype:"body_plate",
-    print:{ tech:"FDM", layer:"0.20 мм", infill:"100% PA-CF (нейлон)" /*, time:"3 г 20 хв", mass:"46 г" */ },
+    photos:["photos/multi-001-1.png","photos/multi-001-2.png","photos/multi-001-3.png","photos/multi-001-4.png"],
+    print:{ tech:"FDM", layer:"0.20 мм", infill:"100% PA-CF (нейлон)" /*, time:"…", mass:"…" */ },
     material:"PA-CF (нейлон)",
     compat:["AGM"],
-    notes:"Корпус батарейного блоку для AGM.",
-    photos: ["photos/multi-001-1.png", "photos/multi-001-2.png"] },
+    notes:"Корпус батарейного блоку для AGM." },
 
   { id:"multi-002", sku:"VOL-MLT-002", department:"Оптика",
     name:"Тримач екрана (LCD bracket)",
