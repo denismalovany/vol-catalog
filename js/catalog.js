@@ -215,10 +215,9 @@
     const href = `./part.html?id=${encodeURIComponent(p.id)}`;
     const hasPhotos = window.RENDER.hasPhotos(p);
     const photo = hasPhotos ? p.photos[0] : null;
-    const renderSVG = (window.RENDER.archetypes[p.archetype] || window.RENDER.archetypes._default)(p);
     const mediaHTML = photo
       ? `<img src="${photo}" alt="${p.name}" loading="lazy" decoding="async">`
-      : renderSVG;
+      : window.RENDER.placeholder(p, p.sku);
     const badge = hasPhotos && p.photos.length > 1
       ? `<span class="card__photo-count" aria-label="${p.photos.length} фото">1 / ${p.photos.length}</span>`
       : "";
@@ -274,8 +273,10 @@
           if (!card) return;
           const part = (window.PARTS || []).find(p => p.id === card.dataset.id);
           if (!part) return;
-          const svg = (window.RENDER.archetypes[part.archetype] || window.RENDER.archetypes._default)(part);
-          host.innerHTML = svg;
+          const photo = (part.photos && part.photos[0]) || null;
+          host.innerHTML = photo
+            ? `<img src="${photo}" alt="${part.name}">`
+            : window.RENDER.placeholder(part, part.sku);
         }, { once: true });
       });
     }

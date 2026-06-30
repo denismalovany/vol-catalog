@@ -37,10 +37,9 @@
   /* Gallery */
   const hasPhotos = window.RENDER.hasPhotos(part);
   const photos = hasPhotos ? part.photos : [];
-  const fallbackSVG = (window.RENDER.archetypes[part.archetype] || window.RENDER.archetypes._default)(part);
   const mainHTML = hasPhotos
     ? `<img id="gal-main-img" src="${photos[0]}" alt="${part.name}">`
-    : fallbackSVG;
+    : window.RENDER.placeholder(part, part.sku);
   const counterHTML = hasPhotos
     ? `<div class="gallery__counter" id="gal-counter">1 / ${photos.length}</div>`
     : "";
