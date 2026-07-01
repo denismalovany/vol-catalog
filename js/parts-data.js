@@ -16,11 +16,11 @@ window.PARTS = [
 
 
   { id:"vol-vol-mav-005", sku:"VOL-MAV-005", department:"Дрони",
-    name:"Ніжка посадкова (задня права)фіафіа",
+    name:"Ніжка посадкова тест",
     device:["DJI Mavic 3"],
     type:"Механіка",
-    photos:["photos/mavic-005-1.png","photos/mavic-005-2.png"],
-    print:{ tech:"FDM" },
+    photos:["photos/vol-vol-mav-005-1.png","photos/vol-vol-mav-005-2.png"],
+    print:{ tech:"SLA" },
     material:"PETG",
     notes:"Посадкова ніжка з демпферним кільцем TPU. Друк у орієнтації XZ." },
 
