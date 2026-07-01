@@ -11,14 +11,6 @@
 
 window.PARTS = [
   /* ── DJI Mavic ─────────────────────────────────────────── */
-  { id:"mavic-001", sku:"VOL-MAV-001", department:"Дрони",
-    name:"Крило верхнє (переднє ліве)",
-    device:["DJI Mavic 3","DJI Mavic 3 Pro","DJI Mavic Air 2"],
-    type:"Корпусна",
-    photos:["photos/mavic-001-1.jpg","photos/mavic-001-2.jpg","photos/mavic-001-3.jpg"],
-    print:{ tech:"FDM" },
-    material:"PETG-CF",
-    notes:"Заміна стокової верхньої панелі після крашу. Посадкова площина під стійки — допуск ±0.2 мм." },
 
   { id:"mavic-002", sku:"VOL-MAV-002", department:"Дрони",
     name:"Захист підвісу (gimbal guard)",
