@@ -15,23 +15,7 @@ window.PARTS = [
 
 
 
-  { id:"vol-vol-mav-005", sku:"VOL-MAV-005", department:"Дрони",
-    name:"Ніжка посадкова тест",
-    device:["DJI Mavic 3"],
-    type:"Механіка",
-    photos:["photos/vol-vol-mav-005-1.png","photos/vol-vol-mav-005-2.png"],
-    print:{ tech:"SLA" },
-    material:"PETG",
-    notes:"Посадкова ніжка з демпферним кільцем TPU. Друк у орієнтації XZ." },
 
-  { id:"vol-vol-mav-006", sku:"VOL-MAV-006", department:"Дрони",
-    name:"Кабель-тримач (cable strain relief)",
-    device:["DJI Mavic 3","DJI Mavic Air 2","DJI Mavic Mini 2"],
-    type:"Електроніка",
-    photos:["photos/mavic-006-1.png","photos/mavic-006-2.png"],
-    print:{ tech:"FDM" },
-    material:"TPU 95A",
-    notes:"Фіксатор кабелю підвісу від вібрації. TPU 95A — достатня гнучкість без повзучості." },
 
   { id:"mavic-007", sku:"VOL-MAV-007", department:"Дрони",
     name:"Тримач пропелера (пара, 2 шт)",
@@ -368,13 +352,6 @@ window.PARTS = [
     material:"TPU 95A",
     notes:"Ущільнювач заміна силіконового. Товщина 1.5 мм. Стійкий до UV та масел." },
 
-  { id:"uni-004", sku:"VOL-UNI-004", department:"Дрони",
-    name:"Антена-тримач (SMA mount)",
-    device:["Універсальний"],
-    type:"Кріплення",
-    print:{ tech:"FDM" },
-    material:"PETG-CF",
-    notes:"Тримач SMA-антени. Стандартне кріплення M10×0.75." },
 
   { id:"vol-123", sku:"123", department:"Оптика",
     name:"test",
