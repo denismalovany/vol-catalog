@@ -416,3 +416,5 @@ window.PARTS = [
     notes:"тест" }
 
 ];
+
+/* sync-push test */
