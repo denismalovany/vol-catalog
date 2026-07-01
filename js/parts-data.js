@@ -12,23 +12,7 @@
 window.PARTS = [
   /* ── DJI Mavic ─────────────────────────────────────────── */
 
-  { id:"mavic-002", sku:"VOL-MAV-002", department:"Дрони",
-    name:"Захист підвісу (gimbal guard)",
-    device:["DJI Mavic 3","DJI Mavic 3 Pro"],
-    type:"Корпусна",
-    photos:["photos/mavic-002-1.jpg","photos/mavic-002-2.jpg"],
-    print:{ tech:"SLA" },
-    material:"ABS-like resin",
-    notes:"Друк на SLA — потрібна гладка контактна поверхня під об'єктив. Після друку — УФ-загартування 4 хв." },
 
-  { id:"mavic-003", sku:"VOL-MAV-003", department:"Дрони",
-    name:"Кронштейн кріплення камери GoPro",
-    device:["DJI Mavic 3","DJI Mavic 2"],
-    type:"Кріплення",
-    photos:["photos/mavic-003-1.jpg","photos/mavic-003-2.jpg","photos/mavic-003-3.jpg","photos/mavic-003-4.jpg"],
-    print:{ tech:"FDM" },
-    material:"PETG-CF",
-    notes:"Універсальна майданчик під GoPro-серію. Стандартне кріплення thumb-screw М3." },
 
   { id:"mavic-004", sku:"VOL-MAV-004", department:"Дрони",
     name:"Антена кріплення (штатна репліка)",
