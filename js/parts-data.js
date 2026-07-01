@@ -24,10 +24,11 @@ window.PARTS = [
     material:"PETG",
     notes:"Посадкова ніжка з демпферним кільцем TPU. Друк у орієнтації XZ." },
 
-  { id:"mavic-006", sku:"VOL-MAV-006", department:"Дрони",
+  { id:"vol-vol-mav-006", sku:"VOL-MAV-006", department:"Дрони",
     name:"Кабель-тримач (cable strain relief)",
     device:["DJI Mavic 3","DJI Mavic Air 2","DJI Mavic Mini 2"],
     type:"Електроніка",
+    photos:["photos/mavic-006-1.png","photos/mavic-006-2.png"],
     print:{ tech:"FDM" },
     material:"TPU 95A",
     notes:"Фіксатор кабелю підвісу від вібрації. TPU 95A — достатня гнучкість без повзучості." },
