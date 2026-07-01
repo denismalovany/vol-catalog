@@ -32,15 +32,14 @@
   $("#m-sku").textContent = part.sku;
   $("#m-type").textContent = part.type;
   $("#m-name").textContent = part.name;
-  $("#m-lede").textContent = `${part.type.toLowerCase()} деталь для ${part.device.join(", ")}. ${part.print.tech}-друк, ${part.print.layer} шар, матеріал — ${part.material}.`;
+  $("#m-lede").textContent = `${part.type.toLowerCase()} деталь для ${part.device.join(", ")}. ${part.print.tech}-друк, матеріал — ${part.material}.`;
 
   /* Gallery */
   const hasPhotos = window.RENDER.hasPhotos(part);
   const photos = hasPhotos ? part.photos : [];
-  const fallbackSVG = (window.RENDER.archetypes[part.archetype] || window.RENDER.archetypes._default)(part);
   const mainHTML = hasPhotos
     ? `<img id="gal-main-img" src="${photos[0]}" alt="${part.name}">`
-    : fallbackSVG;
+    : window.RENDER.placeholder(part, part.sku);
   const counterHTML = hasPhotos
     ? `<div class="gallery__counter" id="gal-counter">1 / ${photos.length}</div>`
     : "";
@@ -152,14 +151,11 @@
     });
   }
 
-  /* Compat list */
-  $("#m-compat").innerHTML = (part.compat || []).map(c => `<li>${c}</li>`).join("");
+  /* Compat list (deprecated) */
 
   /* Print params */
   const specs = [
-    ["Технологія", part.print.tech],
-    ["Висота шару", part.print.layer],
-    ["Заповнення", part.print.infill]
+    ["Технологія", part.print.tech]
   ];
   $("#m-print").innerHTML = specs.map(([l, v]) => `
     <div class="spec-card">
