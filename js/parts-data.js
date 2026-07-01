@@ -14,19 +14,12 @@ window.PARTS = [
 
 
 
-  { id:"mavic-004", sku:"VOL-MAV-004", department:"Дрони",
-    name:"Антена кріплення (штатна репліка)",
-    device:["DJI Mavic 3","DJI Mavic Air 2"],
-    type:"Кріплення",
-    photos:["photos/mavic-004-1.jpg"],
-    print:{ tech:"FDM" },
-    material:"PA-CF (нейлон)",
-    notes:"Під заміну втраченої антенної стійки. PA-CF витримує згин без тріщин." },
 
-  { id:"mavic-005", sku:"VOL-MAV-005", department:"Дрони",
-    name:"Ніжка посадкова (задня права)",
+  { id:"vol-vol-mav-005", sku:"VOL-MAV-005", department:"Дрони",
+    name:"Ніжка посадкова (задня права)фіафіа",
     device:["DJI Mavic 3"],
     type:"Механіка",
+    photos:["photos/mavic-005-1.png","photos/mavic-005-2.png"],
     print:{ tech:"FDM" },
     material:"PETG",
     notes:"Посадкова ніжка з демпферним кільцем TPU. Друк у орієнтації XZ." },
