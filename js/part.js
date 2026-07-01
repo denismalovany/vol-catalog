@@ -32,7 +32,7 @@
   $("#m-sku").textContent = part.sku;
   $("#m-type").textContent = part.type;
   $("#m-name").textContent = part.name;
-  $("#m-lede").textContent = `${part.type.toLowerCase()} деталь для ${part.device.join(", ")}. ${part.print.tech}-друк, ${part.print.layer} шар, матеріал — ${part.material}.`;
+  $("#m-lede").textContent = `${part.type.toLowerCase()} деталь для ${part.device.join(", ")}. ${part.print.tech}-друк, матеріал — ${part.material}.`;
 
   /* Gallery */
   const hasPhotos = window.RENDER.hasPhotos(part);
@@ -155,9 +155,7 @@
 
   /* Print params */
   const specs = [
-    ["Технологія", part.print.tech],
-    ["Висота шару", part.print.layer],
-    ["Заповнення", part.print.infill]
+    ["Технологія", part.print.tech]
   ];
   $("#m-print").innerHTML = specs.map(([l, v]) => `
     <div class="spec-card">

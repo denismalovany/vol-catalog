@@ -234,8 +234,6 @@
           <div class="card__compat">${p.device.join(" · ")}</div>
           <div class="card__specs">
             <span><span>Технологія</span><strong>${p.print.tech}</strong></span>
-            <span><span>Шар</span><strong>${p.print.layer}</strong></span>
-            <span><span>Заповнення</span><strong>${p.print.infill}</strong></span>
           </div>
         </div>
       </article>
