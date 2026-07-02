@@ -14,7 +14,7 @@ window.PARTS = [
 
   { id:"vol-123", sku:"123", department:"Оптика",
     name:"",
-    device:[],
+    device:["DJI Inspire 3"],
     photos:["photos/vol-123-1.png","photos/vol-123-2.png"],
     print:{ tech:"FDM" },
     material:"PETG",
