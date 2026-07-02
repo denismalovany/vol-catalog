@@ -30,23 +30,7 @@
       gap: 40px;
       height: 80px;
     }
-    .logo {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      color: #000;
-    }
-    .logo__mark {
-      width: 36px; height: 36px;
-      background: #2297b2;
-      color: #fff;
-      border-radius: 6px;
-      display: grid; place-items: center;
-      font-weight: 600; font-size: 18px;
-    }
-    .logo__text { font-weight: 600; font-size: 18px; display: flex; flex-direction: column; line-height: 1.1; }
-    .logo__text small { font-weight: 400; font-size: 12px; color: #6b6964; }
+    .logo img { height: 40px; display: block; }
     .main {
       flex: 1;
       display: grid;
@@ -106,10 +90,7 @@
 <body>
   <header class="site-header">
     <div class="site-header__inner">
-      <a href="./" class="logo">
-        <span class="logo__mark">V</span>
-        <span class="logo__text">VOL<small>волонтерська оптична лабораторія</small></span>
-      </a>
+      <a href="./" class="logo"><img src="logo.svg" alt="VOL"></a>
     </div>
   </header>
 
