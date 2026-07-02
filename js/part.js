@@ -102,8 +102,8 @@
       counter.textContent = `${current + 1} / ${photos.length}`;
       thumbs.forEach((t, k) => t.setAttribute("aria-current", k === current ? "true" : "false"));
     }
-    btnPrev.addEventListener("click", () => go(current - 1));
-    btnNext.addEventListener("click", () => go(current + 1));
+    btnPrev.addEventListener("click", (e) => { e.stopPropagation(); go(current - 1); });
+    btnNext.addEventListener("click", (e) => { e.stopPropagation(); go(current + 1); });
     thumbs.forEach((t, k) => t.addEventListener("click", () => go(k)));
 
     /* Lightbox */
