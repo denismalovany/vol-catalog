@@ -30,9 +30,8 @@
 
   /* Meta */
   $("#m-sku").textContent = part.sku;
-  $("#m-type").textContent = part.type;
   $("#m-name").textContent = part.name;
-  $("#m-lede").textContent = `${part.type.toLowerCase()} деталь для ${part.device.join(", ")}. ${part.print.tech}-друк, матеріал — ${part.material}.`;
+  $("#m-lede").textContent = `Деталь для ${part.device.join(", ")}. ${part.print.tech}-друк, матеріал — ${part.material}.`;
 
   /* Gallery */
   const hasPhotos = window.RENDER.hasPhotos(part);
@@ -170,9 +169,9 @@
   /* Notes */
   $("#m-notes").textContent = part.notes || "—";
 
-  /* Related (того ж типу або пристрою, до 6) */
+  /* Related (за пристроєм, до 6) */
   const related = (window.PARTS || [])
-    .filter(p => p.id !== part.id && (p.type === part.type || p.device.some(d => part.device.includes(d))))
+    .filter(p => p.id !== part.id && p.device.some(d => part.device.includes(d)))
     .sort((a, b) => a.sku.localeCompare(b.sku))
     .slice(0, 6);
   if (related.length) {
@@ -180,7 +179,7 @@
     $("#related").innerHTML = related.map(p => `
       <div class="related__card">
         <a href="./part.html?id=${encodeURIComponent(p.id)}">${p.name}</a>
-        <div class="sku">${p.sku} · ${p.type}</div>
+        <div class="sku">${p.sku}</div>
       </div>
     `).join("");
   }

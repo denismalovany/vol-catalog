@@ -261,10 +261,6 @@
       color: var(--text);
     }
     .card__sku { color: var(--text); }
-    .card__type {
-      background: var(--surface-muted); color: var(--heading);
-      padding: 3px 8px; border-radius: var(--r-sm);
-    }
     .card h3 { font-size: 16px; line-height: 1.35; }
     .card:hover h3 { color: var(--primary); }
     .card__compat {
@@ -350,7 +346,6 @@
       <div class="hero__stats">
         <div><div class="stat__num" id="stat-total">—</div><div class="stat__label">деталей у каталозі</div></div>
         <div><div class="stat__num" id="stat-devices">—</div><div class="stat__label">категорій пристроїв</div></div>
-        <div><div class="stat__num" id="stat-types">—</div><div class="stat__label">типів деталей</div></div>
         <div><div class="stat__num" id="stat-techs">—</div><div class="stat__label">технологій друку</div></div>
       </div>
     </div>
@@ -370,15 +365,12 @@
             <option value="sku">За артикулом</option>
             <option value="name">За назвою</option>
             <option value="device">За пристроєм</option>
-            <option value="type">За типом</option>
           </select>
         </div>
       </div>
 
       <div class="chips" id="chips-department" role="group" aria-label="Фільтр за відділом"></div>
       <div class="chips" id="chips-device" role="group" aria-label="Фільтр за пристроєм"></div>
-      <div class="chips" id="chips-type" role="group" aria-label="Фільтр за типом"></div>
-
       <div class="filters__bar">
         <span id="result-count" aria-live="polite" aria-atomic="true">Знайдено: —</span>
         <button id="reset" class="btn btn--ghost" type="button" style="min-height: 36px; padding: 0 14px; font-size: 13px;">Скинути фільтри</button>

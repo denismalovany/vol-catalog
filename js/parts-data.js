@@ -1,7 +1,7 @@
 /* ===========================================================
    VOL — Каталог 3D-друкованих запчастин
    Список деталей. Кожен запис — це:
-     id, sku, name, device[], type, photos?[],
+     id, sku, name, device[], photos?[],
      print{tech}, material, notes
    (поле print тепер містить тільки tech: FDM/SLA)
    Рендери — тільки фото-режим (див. photos: [...]). SVG-фолбек render.js прибрано.

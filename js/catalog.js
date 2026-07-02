@@ -13,8 +13,7 @@
     q: "",
     sort: "sku",
     departments: new Set(),
-    devices: new Set(),
-    types: new Set()
+    devices: new Set()
   };
 
   /* ===========================================================
@@ -29,7 +28,6 @@
     [...new Set(arr.filter(Boolean))].sort((a, b) => String(a).localeCompare(String(b), "uk"));
 
   const departmentNames = uniqueSorted(parts.map(p => p.department));
-  const allTypes = uniqueSorted(parts.map(p => p.type));
   const allTechs = uniqueSorted(parts.map(p => p.print && p.print.tech));
 
   /* Сімейства пристроїв: для кожного повного маркування знаходимо
@@ -75,10 +73,6 @@
         /* Дозволяємо тільки якщо такий сімейний ключ існує в каталозі */
         if (deviceFamilies.includes(decoded)) state.devices.add(decoded);
       }
-      if (k === "type" && v) {
-        const decoded = decodeURIComponent(v);
-        if (allTypes.includes(decoded)) state.types.add(decoded);
-      }
     });
   }
   applyHashFilters();
@@ -86,16 +80,15 @@
   /* ---------- Ініціалізація статистики hero ---------- */
   $("#stat-total").textContent = parts.length;
   $("#stat-devices").textContent = deviceFamilies.length;
-  $("#stat-types").textContent = allTypes.length;
   $("#stat-techs").textContent = allTechs.length;
 
   /* ---------- Побудова чіпів ---------- */
   function buildChips(containerId, items, stateSet, prefix) {
     const container = $("#" + containerId);
+    if (!container) return;
     container.innerHTML = "";
     const label = containerId === "chips-department" ? "Відділ:"
-                 : containerId === "chips-device"    ? "Пристрій:"
-                 : "Тип:";
+                 : "Пристрій:";
     const labelEl = document.createElement("span");
     labelEl.style.cssText = "font:600 11px/1 var(--font-mono);letter-spacing:0.1em;text-transform:uppercase;color:var(--text);align-self:center;margin-right:4px;";
     labelEl.textContent = label;
@@ -104,8 +97,7 @@
     items.forEach(item => {
       const count = parts.filter(p => {
         if (containerId === "chips-department") return p.department === item;
-        if (containerId === "chips-device") return p.device.some(d => deviceMatches(d, item));
-        return p.type === item;
+        return p.device.some(d => deviceMatches(d, item));
       }).length;
       const chip = document.createElement("button");
       chip.type = "button";
@@ -131,13 +123,12 @@
 
   buildChips("chips-department", departmentNames, state.departments, "dp");
   buildChips("chips-device", deviceFamilies, state.devices, "d");
-  buildChips("chips-type", allTypes, state.types, "t");
 
   /* Sync aria-pressed якщо deep-link прийшов через hash */
-  if (state.departments.size || state.devices.size || state.types.size) {
+  if (state.departments.size || state.devices.size) {
     $$(".chip").forEach(c => {
       const v = c.dataset.value;
-      const pressed = state.departments.has(v) || state.devices.has(v) || state.types.has(v);
+      const pressed = state.departments.has(v) || state.devices.has(v);
       c.setAttribute("aria-pressed", pressed ? "true" : "false");
     });
   }
@@ -166,7 +157,6 @@
     state.q = "";
     state.departments.clear();
     state.devices.clear();
-    state.types.clear();
     $("#q").value = "";
     $("#sort").value = "sku";
     state.sort = "sku";
@@ -186,16 +176,12 @@
         Array.from(state.devices).some(chip => deviceMatches(d, chip))
       ));
     }
-    if (state.types.size) {
-      out = out.filter(p => state.types.has(p.type));
-    }
     if (state.q) {
       const q = state.q;
       out = out.filter(p => {
         return (p.sku || "").toLowerCase().includes(q)
           || (p.name || "").toLowerCase().includes(q)
           || (p.material || "").toLowerCase().includes(q)
-          || (p.type || "").toLowerCase().includes(q)
           || p.device.join(" ").toLowerCase().includes(q)
           || (p.notes || "").toLowerCase().includes(q);
       });
@@ -203,8 +189,7 @@
     const cmp = {
       sku: (a, b) => a.sku.localeCompare(b.sku),
       name: (a, b) => a.name.localeCompare(b.name, "uk"),
-      device: (a, b) => (a.device[0] || "").localeCompare(b.device[0] || "", "uk"),
-      type: (a, b) => a.type.localeCompare(b.type, "uk")
+      device: (a, b) => (a.device[0] || "").localeCompare(b.device[0] || "", "uk")
     }[state.sort];
     out.sort(cmp);
     return out;
@@ -228,7 +213,6 @@
         <div class="card__body">
           <div class="card__meta">
             <span class="card__sku">${p.sku}</span>
-            <span class="card__type">${p.type}</span>
           </div>
           <h3>${p.name}</h3>
           <div class="card__compat">${p.device.join(" · ")}</div>
@@ -299,12 +283,9 @@
       if (state.devices.size) {
         if (!p.device.some(d => Array.from(state.devices).some(chip => deviceMatches(d, chip)))) return false;
       }
-      if (state.types.size) {
-        if (!state.types.has(p.type)) return false;
-      }
       if (state.q) {
         const q = state.q;
-        const hay = [p.sku, p.name, p.material, p.type, p.device.join(" "), p.notes || ""].join(" ").toLowerCase();
+        const hay = [p.sku, p.name, p.material, p.device.join(" "), p.notes || ""].join(" ").toLowerCase();
         if (!hay.includes(q)) return false;
       }
       return true;
@@ -316,15 +297,13 @@
 
     [
       { id: "chips-department", items: departmentNames, hideEmpty: true  },
-      { id: "chips-device",     items: deviceFamilies,  hideEmpty: true  },
-      { id: "chips-type",       items: allTypes,        hideEmpty: true  }
+      { id: "chips-device",     items: deviceFamilies,  hideEmpty: true  }
     ].forEach(group => {
       group.items.forEach(item => {
         const chipItem = item;
         const count = countWithExtra(p => {
           if (group.id === "chips-department") return p.department === chipItem;
-          if (group.id === "chips-device") return p.device.some(d => deviceMatches(d, chipItem));
-          return p.type === chipItem;
+          return p.device.some(d => deviceMatches(d, chipItem));
         });
         const chipEl = document.querySelector(`#${group.id} .chip[data-value="${CSS.escape(item)}"]`);
         if (!chipEl) return;
