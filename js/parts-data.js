@@ -14,7 +14,7 @@ window.PARTS = [
 
   { id:"vol-123", sku:"123", department:"Оптика",
     name:"",
-    device:["DJI Inspire 3","DJI Matrice 30","DJI Matrice 300","DJI Matrice 300 RTK","DJI Matrice 4","DJI Mavic 2","DJI Mavic 3","DJI Mavic 3 Pro","DJI Mavic Air 2","DJI Mavic Mini 2","Багатофункціональний прилад спостереження МП-11","Багатофункціональний прилад спостереження МП-7","Багатофункціональний прилад спостереження МП-9","ПНБ Challenger GS","ПНБ PVS-14","ПНБ PVS-14 (репліка)","ПНБ PVS-7","Тепловізор Flir Scout III","Тепловізор Flir Scout TK","Тепловізор Pulsar Helion 2","Тепловізійний приціл Pulsar Helion 2","Тепловізійний приціл Pulsar Trail 2","Універсальний"],
+    device:[],
     photos:["photos/vol-123-1.png","photos/vol-123-2.png"],
     print:{ tech:"FDM" },
     material:"PETG",
