@@ -11,408 +11,78 @@
 
 window.PARTS = [
   /* ── DJI Mavic ─────────────────────────────────────────── */
-  { id:"mavic-001", sku:"VOL-MAV-001", department:"Дрони",
-    name:"Крило верхнє (переднє ліве)",
-    device:["DJI Mavic 3","DJI Mavic 3 Pro","DJI Mavic Air 2"],
 
-    photos:["photos/mavic-001-1.jpg","photos/mavic-001-2.jpg","photos/mavic-001-3.jpg"],
-    print:{ tech:"FDM" },
-    material:"PETG-CF",
-    notes:"Заміна стокової верхньої панелі після крашу. Посадкова площина під стійки — допуск ±0.2 мм." },
 
-  { id:"mavic-002", sku:"VOL-MAV-002", department:"Дрони",
-    name:"Захист підвісу (gimbal guard)",
-    device:["DJI Mavic 3","DJI Mavic 3 Pro"],
 
-    photos:["photos/mavic-002-1.jpg","photos/mavic-002-2.jpg"],
-    print:{ tech:"SLA" },
-    material:"ABS-like resin",
-    notes:"Друк на SLA — потрібна гладка контактна поверхня під об'єктив. Після друку — УФ-загартування 4 хв." },
 
-  { id:"mavic-003", sku:"VOL-MAV-003", department:"Дрони",
-    name:"Кронштейн кріплення камери GoPro",
-    device:["DJI Mavic 3","DJI Mavic 2"],
 
-    photos:["photos/mavic-003-1.jpg","photos/mavic-003-2.jpg","photos/mavic-003-3.jpg","photos/mavic-003-4.jpg"],
-    print:{ tech:"FDM" },
-    material:"PETG-CF",
-    notes:"Універсальна майданчик під GoPro-серію. Стандартне кріплення thumb-screw М3." },
 
-  { id:"mavic-004", sku:"VOL-MAV-004", department:"Дрони",
-    name:"Антена кріплення (штатна репліка)",
-    device:["DJI Mavic 3","DJI Mavic Air 2"],
 
-    photos:["photos/mavic-004-1.jpg"],
-    print:{ tech:"FDM" },
-    material:"PA-CF (нейлон)",
-    notes:"Під заміну втраченої антенної стійки. PA-CF витримує згин без тріщин." },
-
-  { id:"mavic-005", sku:"VOL-MAV-005", department:"Дрони",
-    name:"Ніжка посадкова (задня права)",
-    device:["DJI Mavic 3"],
-
-    print:{ tech:"FDM" },
-    material:"PETG",
-    notes:"Посадкова ніжка з демпферним кільцем TPU. Друк у орієнтації XZ." },
-
-  { id:"mavic-006", sku:"VOL-MAV-006", department:"Дрони",
-    name:"Кабель-тримач (cable strain relief)",
-    device:["DJI Mavic 3","DJI Mavic Air 2","DJI Mavic Mini 2"],
-
-    print:{ tech:"FDM" },
-    material:"TPU 95A",
-    notes:"Фіксатор кабелю підвісу від вібрації. TPU 95A — достатня гнучкість без повзучості." },
-
-  { id:"mavic-007", sku:"VOL-MAV-007", department:"Дрони",
-    name:"Тримач пропелера (пара, 2 шт)",
-    device:["DJI Mavic 3","DJI Mavic Air 2"],
-
-    print:{ tech:"FDM" },
-    material:"PLA+",
-    notes:"Пара фіксаторів для транспортування. Помаранчевий — щоб не загубити." },
-
-  { id:"mavic-008", sku:"VOL-MAV-008", department:"Дрони",
-    name:"Кільце адаптер фільтра 52 мм",
-    device:["DJI Mavic 3","DJI Mavic 3 Pro","DJI Mavic Air 2"],
-
-    print:{ tech:"SLA" },
-    material:"ABS-like resin",
-    notes:"Сумісний із різьбовими CPL/ND-фільтрами 52 мм. Друк SLA для точної різьби M52×0.75." },
 
   /* ── DJI Matrice ──────────────────────────────────────── */
-  { id:"matr-001", sku:"VOL-MTR-001", department:"Дрони",
-    name:"Панель верхня (шасі)",
-    device:["DJI Matrice 30"],
 
-    print:{ tech:"FDM" },
-    material:"PA-CF (нейлон)",
-    notes:"Заміна верхньої шасі-плити після крашу. PA-CF обов'язковий — стандартний PETG не витримує ударних навантажень." },
 
-  { id:"matr-002", sku:"VOL-MTR-002", department:"Дрони",
-    name:"Кронштейн корисного навантаження",
-    device:["DJI Matrice 30","DJI Matrice 300"],
 
-    print:{ tech:"FDM" },
-    material:"PA-CF (нейлон)",
-    notes:"Майданчик під додатковий модуль (ліхтар, динамік, ретранслятор). Стандартне кріплення M4." },
 
-  { id:"matr-003", sku:"VOL-MTR-003", department:"Дрони",
-    name:"Захист гвинта нижній (skid)",
-    device:["DJI Matrice 30"],
 
-    print:{ tech:"FDM" },
-    material:"TPU 95A",
-    notes:"Демпферна накладка на нижню раму. TPU 95A — компроміс гнучкості та зносостійкості." },
 
-  { id:"matr-004", sku:"VOL-MTR-004", department:"Дрони",
-    name:"Тримач акумулятора (друга батарея)",
-    device:["DJI Matrice 30"],
 
-    print:{ tech:"FDM" },
-    material:"PA-CF (нейлон)",
-    notes:"Майданчик під другу батарею TB30. Встановлюється в стіковий слот без модифікацій." },
-
-  { id:"matr-005", sku:"VOL-MTR-005", department:"Дрони",
-    name:"Кабельний канал (cable guide)",
-    device:["DJI Matrice 300","DJI Matrice 30"],
-
-    print:{ tech:"FDM" },
-    material:"PETG",
-    notes:"Кабель-канал уздовж рами. Усуває ризик перетирання джгута об промені." },
-
-  { id:"matr-006", sku:"VOL-MTR-006", department:"Дрони",
-    name:"Кришка відсіку GPS",
-    device:["DJI Matrice 300 RTK"],
-
-    print:{ tech:"SLA" },
-    material:"ABS-like resin",
-    notes:"SLA-друк обов'язковий — потрібна точна посадка під ущільнювач IP45." },
-
-  { id:"matr-007", sku:"VOL-MTR-007", department:"Дрони",
-    name:"Антена RTK-кріплення",
-    device:["DJI Matrice 300 RTK"],
-
-    print:{ tech:"FDM" },
-    material:"PETG-CF",
-    notes:"Заміна штатного кронштейна. Додатковий отвір під кабельну стяжку." },
-
-  { id:"matr-008", sku:"VOL-MTR-008", department:"Дрони",
-    name:"Стропа страхувальна (2 точки)",
-    device:["DJI Matrice 300","DJI Matrice 30"],
-
-    print:{ tech:"FDM" },
-    material:"TPU 95A",
-    notes:"Страхувальна стропа для роботи біля будівель/дерев. Жовтий — для помітності." },
 
   /* ── Багатофункціональні прилади спостереження ─────────── */
-  { id:"vol-vol-mlt-001", sku:"VOL-MLT-001", department:"Оптика",
-    name:"Корпус батарейного блоку",
-    device:["AGM"],
 
-    photos:["photos/multi-001-1.png","photos/multi-001-2.png","photos/multi-001-3.png","photos/multi-001-4.png"],
-    print:{ tech:"FDM" },
-    material:"PA-CF (нейлон)",
-    notes:"Корпус батарейного блоку для AGM." },
 
-  { id:"multi-002", sku:"VOL-MLT-002", department:"Оптика",
-    name:"Тримач екрана (LCD bracket)",
-    device:["Багатофункціональний прилад спостереження МП-7"],
 
-    print:{ tech:"FDM" },
-    material:"PLA+",
-    notes:"Регульований кут нахилу ±15°. Підходить для дисплеїв 5″ з монтажем 120×76 мм." },
 
-  { id:"multi-003", sku:"VOL-MLT-003", department:"Оптика",
-    name:"Кільце обертання (rotation ring)",
-    device:["Багатофункціональний прилад спостереження МП-9"],
 
-    print:{ tech:"FDM" },
-    material:"PETG-CF",
-    notes:"Кільце з 36 зубцями під шестерню. Друк у вертикальній орієнтації — без підтримок." },
 
-  { id:"multi-004", sku:"VOL-MLT-004", department:"Оптика",
-    name:"Шестерня приводу (gear 36T)",
-    device:["Багатофункціональний прилад спостереження МП-9"],
 
-    print:{ tech:"FDM" },
-    material:"PA-CF (нейлон)",
-    notes:"Шестерня 36 зубців, модуль 0.5. Тонкий шар 0.10 мм — для точного профілю зуба." },
-
-  { id:"multi-005", sku:"VOL-MLT-005", department:"Оптика",
-    name:"Кришка об'єктива (lens cap)",
-    device:["Багатофункціональний прилад спостереження МП-7"],
-
-    print:{ tech:"SLA" },
-    material:"ABS-like resin",
-    notes:"Кришка-оберігач на байонет. SLA — щоб різьба не зламалась при відкручуванні." },
-
-  { id:"multi-006", sku:"VOL-MLT-006", department:"Оптика",
-    name:"Ручка бокова (side handle)",
-    device:["Багатофункціональний прилад спостереження МП-11"],
-
-    print:{ tech:"FDM" },
-    material:"PETG",
-    notes:"Бокова ручка для стабілізації. Стандартне кріплення 1/4″-20." },
-
-  { id:"multi-007", sku:"VOL-MLT-007", department:"Оптика",
-    name:"Кабельний ввід (cable gland)",
-    device:["Багатофункціональний прилад спостереження МП-7","Багатофункціональний прилад спостереження МП-9"],
-
-    print:{ tech:"FDM" },
-    material:"TPU 95A",
-    notes:"Герметичний кабельний ввід під кабель Ø 4–6 мм. Заміна втраченого при ремонті." },
-
-  { id:"multi-008", sku:"VOL-MLT-008", department:"Оптика",
-    name:"Ремінець на шию (neck strap)",
-    device:["Багатофункціональний прилад спостереження МП-7"],
-
-    print:{ tech:"FDM" },
-    material:"PLA+",
-    notes:"Пара фіксаторів під стандартний ремінь 25 мм. Заміна тріснутого штатного." },
 
   /* ── Тепловізійні приціли ─────────────────────────────── */
-  { id:"ths-001", sku:"VOL-THS-001", department:"Оптика",
-    name:"Кронштейн кріплення на планку Picatinny",
-    device:["Тепловізійний приціл Pulsar Trail 2","Тепловізійний приціл Pulsar Helion 2"],
 
-    print:{ tech:"FDM" },
-    material:"PA-CF (нейлон)",
-    notes:"Заміна штатного кронштейна під планку Picatinny 21 мм. PA-CF — для морозостійкості до -20°C і стійкості до віддачі." },
 
-  { id:"ths-005", sku:"VOL-THS-005", department:"Оптика",
-    name:"Кнопка керування (тактова, 4 шт)",
-    device:["Тепловізійний приціл Pulsar Trail 2"],
 
-    print:{ tech:"SLA" },
-    material:"ABS-like resin",
-    notes:"Комплект 4-х тактових кнопок. SLA — щоб хід був однаковий." },
-
-  { id:"ths-006", sku:"VOL-THS-006", department:"Оптика",
-    name:"Гумова накладка окуляра (eyecup)",
-    device:["Тепловізійний приціл Pulsar Trail 2","Тепловізійний приціл Pulsar Helion 2"],
-
-    print:{ tech:"FDM" },
-    material:"TPU 95A",
-    notes:"Гумовий наочник на окуляр. TPU 95A — щоб не тиснув на обличчя при тривалому спостереженні, не пропускає бічне світло." },
-
-  { id:"ths-008", sku:"VOL-THS-008", department:"Оптика",
-    name:"Антена Wi-Fi (зовнішня, репліка)",
-    device:["Тепловізійний приціл Pulsar Trail 2","Тепловізійний приціл Pulsar Helion 2"],
-
-    print:{ tech:"FDM" },
-    material:"PETG-CF",
-    notes:"Корпус зовнішньої антени 2.4 ГГц. Під заміну втраченої." },
 
   /* ── Тепловізори ──────────────────────────────────────── */
-  { id:"thm-001", sku:"VOL-THM-001", department:"Оптика",
-    name:"Корпус ручки (grip housing)",
-    device:["Тепловізор Flir Scout III","Тепловізор Flir Scout TK"],
 
-    print:{ tech:"FDM" },
-    material:"PETG-CF",
-    notes:"Заміна ручки після механічного пошкодження. PA-CF альтернатива — якщо експлуатація до -20°C." },
 
-  { id:"thm-002", sku:"VOL-THM-002", department:"Оптика",
-    name:"Кришка батарейного відсіку",
-    device:["Тепловізор Flir Scout III"],
 
-    print:{ tech:"SLA" },
-    material:"ABS-like resin",
-    notes:"SLA — для точного притискання до ущільнювача." },
 
-  { id:"thm-003", sku:"VOL-THM-003", department:"Оптика",
-    name:"Кільце адаптер фільтра 35 мм",
-    device:["Тепловізор Flir Scout III","Тепловізор Pulsar Helion 2"],
 
-    print:{ tech:"SLA" },
-    material:"ABS-like resin",
-    notes:"Адаптер під CPL 35 мм. Різьба M35×0.75 — SLA обов'язково." },
 
-  { id:"thm-004", sku:"VOL-THM-004", department:"Оптика",
-    name:"Кронштейн кріплення на штатив",
-    device:["Тепловізор Flir Scout III","Тепловізор Pulsar Helion 2"],
 
-    print:{ tech:"FDM" },
-    material:"PETG-CF",
-    notes:"Перехідник 1/4″-20 на штативну майданчик приладу." },
-
-  { id:"thm-005", sku:"VOL-THM-005", department:"Оптика",
-    name:"Шестерня фокусера (focus gear)",
-    device:["Тепловізор Flir Scout III"],
-
-    print:{ tech:"FDM" },
-    material:"PETG-CF",
-    notes:"Заміна зношеної шестерні фокусера. 24 зуби, модуль 0.4." },
-
-  { id:"thm-006", sku:"VOL-THM-006", department:"Оптика",
-    name:"Кришка об'єктива (lens cap)",
-    device:["Тепловізор Flir Scout III"],
-
-    print:{ tech:"SLA" },
-    material:"ABS-like resin",
-    notes:"Захисна кришка об'єктива. Байонетна фіксація." },
-
-  { id:"thm-007", sku:"VOL-THM-007", department:"Оптика",
-    name:"Ремінець на зап'ястя (wrist strap)",
-    device:["Тепловізор Flir Scout III","Тепловізор Pulsar Helion 2"],
-
-    print:{ tech:"FDM" },
-    material:"TPU 95A",
-    notes:"Пара фіксаторів під ремінець 20 мм. TPU 95A — не рве при натягу." },
-
-  { id:"thm-008", sku:"VOL-THM-008", department:"Оптика",
-    name:"Кабель USB-фіксатор",
-    device:["Тепловізор Flir Scout III"],
-
-    print:{ tech:"FDM" },
-    material:"TPU 95A",
-    notes:"Фіксатор micro-USB кабелю. Захищає роз'єм від виривання." },
 
   /* ── Прилади нічного бачення (ПНБ) ───────────────────── */
-  { id:"nvg-001", sku:"VOL-NVG-001", department:"Оптика",
-    name:"Корпус ПНБ монокуляра",
-    device:["ПНБ PVS-14 (репліка)","ПНБ Challenger GS"],
 
-    print:{ tech:"FDM" },
-    material:"PA-CF (нейлон)",
-    notes:"Заміна тріснутого корпусу монокуляра. PA-CF — для морозостійкості та удароміцності." },
 
-  { id:"nvg-002", sku:"VOL-NVG-002", department:"Оптика",
-    name:"Наочник гумовий (eyecup)",
-    device:["ПНБ PVS-14","ПНБ Challenger GS"],
 
-    print:{ tech:"FDM" },
-    material:"TPU 85A",
-    notes:"Заміна втраченого наочника. TPU 85A — щоб не тиснув на обличчя при тривалому носінні." },
 
-  { id:"nvg-003", sku:"VOL-NVG-003", department:"Оптика",
-    name:"Кришка об'єктива (з отвором)",
-    device:["ПНБ PVS-14","ПНБ Challenger GS"],
 
-    print:{ tech:"SLA" },
-    material:"ABS-like resin",
-    notes:"Кришка з центральним отвором Ø 6 мм для тренувань у денний час." },
 
-  { id:"nvg-004", sku:"VOL-NVG-004", department:"Оптика",
-    name:"Кронштейн шоломний (J-arm replica)",
-    device:["ПНБ PVS-14","ПНБ PVS-7"],
 
-    print:{ tech:"FDM" },
-    material:"PA-CF (нейлон)",
-    notes:"J-подібний кронштейн для шолома. PA-CF — обов'язково: навантаження вагою приладу + віддача." },
-
-  { id:"nvg-005", sku:"VOL-NVG-005", department:"Оптика",
-    name:"Тримач батарейки (AA holder)",
-    device:["ПНБ PVS-14"],
-
-    print:{ tech:"FDM" },
-    material:"PETG",
-    notes:"Заміна втраченого тримача AA. Кришка на засувці, без гвинтів." },
-
-  { id:"nvg-006", sku:"VOL-NVG-006", department:"Оптика",
-    name:"Шестерня регулятора яскравості",
-    device:["ПНБ PVS-14","ПНБ Challenger GS"],
-
-    print:{ tech:"SLA" },
-    material:"ABS-like resin",
-    notes:"SLA — для гладкого профілю зуба. 12 зубів, модуль 0.3." },
-
-  { id:"nvg-007", sku:"VOL-NVG-007", department:"Оптика",
-    name:"Кабель-фіксатор (cable strain relief)",
-    device:["ПНБ PVS-14","ПНБ PVS-7"],
-
-    print:{ tech:"FDM" },
-    material:"TPU 95A",
-    notes:"Фіксатор кабелю живлення до корпусу. TPU 95A — не ріже ізоляцію." },
-
-  { id:"nvg-008", sku:"VOL-NVG-008", department:"Оптика",
-    name:"Ремінець кріплення (chin strap)",
-    device:["ПНБ PVS-14","ПНБ PVS-7"],
-
-    print:{ tech:"FDM" },
-    material:"PLA+",
-    notes:"Пара фіксаторів під chin-strap 20 мм. Заміна зношених." },
 
   /* ── Крос-пристрої: універсальні деталі ─────────────── */
-  { id:"uni-001", sku:"VOL-UNI-001", department:"Дрони",
-    name:"Універсальний кронштейн 1/4″-20",
-    device:["Універсальний"],
 
+  { id:"vol-199", sku:"199", department:"Дрони",
+    name:"конектор антенн для DJI RC Plus 2",
+    device:["DJI Inspire 3","DJI Matrice 4"],
+    type:"Корпусна",
+    photos:["photos/199-1.png","photos/199-2.png"],
     print:{ tech:"FDM" },
-    material:"PETG-CF",
-    notes:"L-подібний кронштейн-перехідник. Стандартне фото-кріплення." },
-
-  { id:"uni-002", sku:"VOL-UNI-002", department:"Дрони",
-    name:"Кабель-органайзер (cable clip)",
-    device:["Універсальний"],
-
-    print:{ tech:"FDM" },
-    material:"PLA+",
-    notes:"Самоклейний фіксатор кабелю. У комплекті 3M VHB стрічка." },
-
-  { id:"uni-003", sku:"VOL-UNI-003", department:"Оптика",
-    name:"Ущільнювач корпусу (gasket)",
-    device:["Універсальний"],
-
-    print:{ tech:"FDM" },
-    material:"TPU 95A",
-    notes:"Ущільнювач заміна силіконового. Товщина 1.5 мм. Стійкий до UV та масел." },
-
-  { id:"uni-004", sku:"VOL-UNI-004", department:"Дрони",
-    name:"Антена-тримач (SMA mount)",
-    device:["Універсальний"],
-
-    print:{ tech:"FDM" },
-    material:"PETG-CF",
-    notes:"Тримач SMA-антени. Стандартне кріплення M10×0.75." },
-
-  { id:"vol-123", sku:"123", department:"Оптика",
-    name:"test",
-    device:["123"],
-
-    photos:["photos/123-1.png","photos/123-2.png"],
-    print:{ tech:"FDM" },
-    material:"PA-CF (нейлон)",
-    notes:"тест" }
+    material:"PETG",
+    notes:"" }
 
 ];
+
+/* sync-push test */
+
+/* sync-push test */
+
+/* sync-push test */
+
+/* sync-push test */
+
+/* push hang test */
+
+/* push hang test */
+
+/* push hang test */
