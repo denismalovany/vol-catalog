@@ -67,8 +67,7 @@ window.PARTS = [
   { id:"vol-199", sku:"199", department:"Дрони",
     name:"конектор антенн для DJI RC Plus 2",
     device:["DJI Inspire 3","DJI Matrice 4"],
-    type:"Корпусна",
-    photos:["photos/199-1.png","photos/199-2.png"],
+    photos:["photos/vol-199-1.png","photos/vol-199-2.png"],
     print:{ tech:"FDM" },
     material:"PETG",
     notes:"" }
