@@ -4,7 +4,7 @@ name: VOL
 description: Volunteer Optical Laboratory — calm, trust-forward humanitarian brand. Teal-and-charcoal palette on a clean white canvas, with a single dark "field report" section for gravity.
 colors:
   primary: "#2297b2"
-  primary-hover: "#1559ed"
+  primary-hover: "#1a7f94"
   text: "#333333"
   heading: "#000000"
   link: "#000000"
@@ -136,8 +136,9 @@ no other hues are introduced.
 - **Primary (`#2297b2` — teal):** The single accent. Reserved for primary
   buttons (`ПІДТРИМАТИ`), focus rings, and form-field focus. It is the only
   saturated color on the page.
-- **Primary hover (`#1559ed` — blue):** Hover/focus state for teal elements
-  *and* focus border for form fields. A small saturation shift, not a swap.
+- **Primary hover (`#1a7f94` — dark teal):** Hover/focus state for primary
+  elements and focus border for form fields. A darker shade of the same teal
+  hue, keeping the accent within the same color family.
 - **Text (`#333`):** Body copy, paragraph, captions. Never pure black on
   body — keeps paragraphs comfortable at 18px.
 - **Heading (`#000`):** H1–H3 and nav labels. Pure black for max hierarchy
@@ -232,7 +233,7 @@ The single most important element on the page. Teal background, white text,
 horizontal padding. No border, no shadow.
 
 On hover/focus: background darkens to `--theme-button-background-hover-color`
-(`#1559ed`). Text stays white.
+(`#1a7f94`). Text stays white.
 
 ### `button-dark` (the Stackable secondary CTA)
 
