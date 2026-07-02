@@ -80,7 +80,7 @@
       mainImg.addEventListener("error", () => {
         const host = $("#gal-main");
         if (!host) return;
-        host.innerHTML = fallbackSVG;
+        host.innerHTML = window.RENDER.placeholder(part, part.sku);
         const thumbs = document.querySelector(".gallery__thumbs");
         if (thumbs) thumbs.remove();
       }, { once: true });
