@@ -12,11 +12,13 @@
 window.PARTS = [
   /* ── DJI Mavic ─────────────────────────────────────────── */
 
-
-
-
-
-
+  { id:"vol-123", sku:"123", department:"Оптика",
+    name:"",
+    device:[],
+    photos:["photos/123-1.png","photos/123-2.png"],
+    print:{ tech:"FDM" },
+    material:"PETG",
+    notes:"" },
 
 
   /* ── DJI Matrice ──────────────────────────────────────── */
