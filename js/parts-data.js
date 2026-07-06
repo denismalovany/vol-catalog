@@ -17,7 +17,7 @@ window.PARTS = [
     device:[],
     photos:["photos/vol-оп-40-1.png","photos/vol-оп-40-2.png"],
     print:{ tech:"FDM" },
-    material:"TPU",
+    material:["TPU"],
     notes:"" },
 
   { id:"vol-оп-41", sku:"ОП-41", department:"Оптика",
