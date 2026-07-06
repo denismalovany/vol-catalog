@@ -12,12 +12,84 @@
 window.PARTS = [
   /* ── DJI Mavic ─────────────────────────────────────────── */
 
-  { id:"vol-123", sku:"123", department:"Оптика",
-    name:"",
-    device:["DJI Inspire 3"],
-    photos:["photos/vol-123-1.png","photos/vol-123-2.png"],
+  { id:"vol-оп-40", sku:"ОП-40", department:"Оптика",
+    name:"AGM Rattler Buttons",
+    device:[],
+    photos:["photos/vol-оп-40-1.png","photos/vol-оп-40-2.png"],
     print:{ tech:"FDM" },
-    material:"PETG",
+    material:"TPU",
+    notes:"" },
+
+  { id:"vol-оп-41", sku:"ОП-41", department:"Оптика",
+    name:"",
+    device:[],
+    photos:["photos/vol-оп-41-1.png","photos/vol-оп-41-2.png"],
+    print:{ tech:"FDM" },
+    material:"",
+    notes:"" },
+
+  { id:"vol-оп-42", sku:"ОП-42", department:"Оптика",
+    name:"",
+    device:[],
+    photos:["photos/vol-оп-42-1.png","photos/vol-оп-42-2.png"],
+    print:{ tech:"FDM" },
+    material:"",
+    notes:"" },
+
+  { id:"vol-оп-57", sku:"ОП-57", department:"Оптика",
+    name:"",
+    device:[],
+    photos:["photos/vol-оп-57-1.png","photos/vol-оп-57-2.png"],
+    print:{ tech:"FDM" },
+    material:"",
+    notes:"" },
+
+  { id:"vol-оп-60", sku:"ОП-60", department:"Оптика",
+    name:"",
+    device:[],
+    photos:["photos/vol-оп-60-1.png","photos/vol-оп-60-2.png"],
+    print:{ tech:"FDM" },
+    material:"",
+    notes:"" },
+
+  { id:"vol-оп-67", sku:"ОП-67", department:"Оптика",
+    name:"",
+    device:[],
+    photos:["photos/vol-оп-67-1.png","photos/vol-оп-67-2.png"],
+    print:{ tech:"FDM" },
+    material:"",
+    notes:"" },
+
+  { id:"vol-оп-68", sku:"ОП-68", department:"Оптика",
+    name:"",
+    device:[],
+    photos:["photos/vol-оп-68-1.png","photos/vol-оп-68-2.png"],
+    print:{ tech:"FDM" },
+    material:"",
+    notes:"" },
+
+  { id:"vol-оп-71", sku:"ОП-71", department:"Оптика",
+    name:"",
+    device:[],
+    photos:["photos/vol-оп-71-1.png","photos/vol-оп-71-2.png"],
+    print:{ tech:"FDM" },
+    material:"",
+    notes:"" },
+
+  { id:"vol-оп-74", sku:"ОП-74", department:"Оптика",
+    name:"",
+    device:[],
+    photos:["photos/vol-оп-74-1.png","photos/vol-оп-74-2.png"],
+    print:{ tech:"FDM" },
+    material:"",
+    notes:"" },
+
+  { id:"vol-оп-73", sku:"ОП-73", department:"Оптика",
+    name:"",
+    device:[],
+    photos:["photos/vol-оп-73-1.png","photos/vol-оп-73-2.png"],
+    print:{ tech:"FDM" },
+    material:"",
     notes:"" },
 
 
@@ -64,13 +136,6 @@ window.PARTS = [
 
   /* ── Крос-пристрої: універсальні деталі ─────────────── */
 
-  { id:"vol-199", sku:"199", department:"Дрони",
-    name:"конектор антенн для DJI RC Plus 2",
-    device:["DJI Inspire 3","DJI Matrice 4"],
-    photos:["photos/vol-199-1.png","photos/vol-199-2.png"],
-    print:{ tech:"FDM" },
-    material:"PETG",
-    notes:"" }
 
 ];
 
