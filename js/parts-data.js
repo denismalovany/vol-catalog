@@ -25,7 +25,7 @@ window.PARTS = [
     device:[],
     photos:["photos/vol-оп-41-1.png","photos/vol-оп-41-2.png"],
     print:{ tech:"FDM" },
-    material:"",
+    material:[""],
     notes:"" },
 
   { id:"vol-оп-42", sku:"ОП-42", department:"Оптика",
@@ -33,7 +33,7 @@ window.PARTS = [
     device:[],
     photos:["photos/vol-оп-42-1.png","photos/vol-оп-42-2.png"],
     print:{ tech:"FDM" },
-    material:"",
+    material:[""],
     notes:"" },
 
   { id:"vol-оп-57", sku:"ОП-57", department:"Оптика",
@@ -41,7 +41,7 @@ window.PARTS = [
     device:[],
     photos:["photos/vol-оп-57-1.png","photos/vol-оп-57-2.png"],
     print:{ tech:"FDM" },
-    material:"",
+    material:[""],
     notes:"" },
 
   { id:"vol-оп-60", sku:"ОП-60", department:"Оптика",
@@ -49,7 +49,7 @@ window.PARTS = [
     device:[],
     photos:["photos/vol-оп-60-1.png","photos/vol-оп-60-2.png"],
     print:{ tech:"FDM" },
-    material:"",
+    material:[""],
     notes:"" },
 
   { id:"vol-оп-67", sku:"ОП-67", department:"Оптика",
@@ -57,7 +57,7 @@ window.PARTS = [
     device:[],
     photos:["photos/vol-оп-67-1.png","photos/vol-оп-67-2.png"],
     print:{ tech:"FDM" },
-    material:"",
+    material:[""],
     notes:"" },
 
   { id:"vol-оп-68", sku:"ОП-68", department:"Оптика",
@@ -65,7 +65,7 @@ window.PARTS = [
     device:[],
     photos:["photos/vol-оп-68-1.png","photos/vol-оп-68-2.png"],
     print:{ tech:"FDM" },
-    material:"",
+    material:[""],
     notes:"" },
 
   { id:"vol-оп-71", sku:"ОП-71", department:"Оптика",
@@ -73,7 +73,7 @@ window.PARTS = [
     device:[],
     photos:["photos/vol-оп-71-1.png","photos/vol-оп-71-2.png"],
     print:{ tech:"FDM" },
-    material:"",
+    material:[""],
     notes:"" },
 
   { id:"vol-оп-74", sku:"ОП-74", department:"Оптика",
@@ -81,7 +81,7 @@ window.PARTS = [
     device:[],
     photos:["photos/vol-оп-74-1.png","photos/vol-оп-74-2.png"],
     print:{ tech:"FDM" },
-    material:"",
+    material:[""],
     notes:"" },
 
   { id:"vol-оп-73", sku:"ОП-73", department:"Оптика",
@@ -89,7 +89,7 @@ window.PARTS = [
     device:[],
     photos:["photos/vol-оп-73-1.png","photos/vol-оп-73-2.png"],
     print:{ tech:"FDM" },
-    material:"",
+    material:[""],
     notes:"" },
 
 
