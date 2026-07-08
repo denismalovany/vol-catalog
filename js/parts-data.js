@@ -92,6 +92,14 @@ window.PARTS = [
     material:[""],
     notes:"" },
 
+  { id:"vol-оп-75", sku:"ОП-75", department:"Оптика",
+    name:"",
+    device:[],
+    photos:["photos/vol-оп-75-1.png","photos/vol-оп-75-2.png","photos/vol-оп-75-3.png","photos/vol-оп-75-4.png","photos/vol-оп-75-2-1.png","photos/vol-оп-75-2-2.png","photos/vol-оп-75-2-3.png","photos/vol-оп-75-2-4.png"],
+    print:{ tech:"FDM" },
+    material:[],
+    notes:"" },
+
 
   /* ── DJI Matrice ──────────────────────────────────────── */
 
