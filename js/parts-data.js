@@ -197,11 +197,11 @@ window.PARTS = [
     notes:"" },
 
   { id:"vol-оп-113", sku:"ОП-113", department:"Оптика",
-    name:"",
-    device:[],
-    photos:["photos/vol-оп-113-1.png","photos/vol-оп-113-2.png","photos/vol-оп-113-3.png","photos/vol-оп-113-4.png","photos/vol-оп-113-2-1.png","photos/vol-оп-113-2-2.png","photos/vol-оп-113-2-3.png","photos/vol-оп-113-2-4.png"],
+    name:"micron left/right nod mount",
+    device:["MIcron-d","Nyx-LW"],
+    photos:["photos/vol-оп-113-1.png","photos/vol-оп-113-2.png","photos/vol-оп-113-3.png","photos/vol-оп-113-4.png","photos/vol-оп-113-1.png","photos/vol-оп-113-2.png","photos/vol-оп-113-3.png","photos/vol-оп-113-4.png","photos/vol-оп-113-2-1.png","photos/vol-оп-113-2-2.png","photos/vol-оп-113-2-3.png","photos/vol-оп-113-2-4.png"],
     print:{ tech:"FDM" },
-    material:[],
+    material:["TPU"],
     notes:"" },
 
 
